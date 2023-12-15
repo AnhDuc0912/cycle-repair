@@ -1,8 +1,7 @@
-
 class CourseConttroller {
     //[GET] /course
     async index(req, res) {
-        res.render('pages/shop');
+        res.render('pages/product/product.hbs');
     }
 }
 
