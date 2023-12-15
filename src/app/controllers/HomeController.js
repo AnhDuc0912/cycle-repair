@@ -2,11 +2,11 @@
 class HomeConttroller {
     //[GET] /
     index(req, res) {
-        res.render('home')
+        res.render('pages/home')
     }
     //[GET] /search
     search(req, res) {
-        res.render('search');
+        res.render('pages/search');
     }
 
     searchResult(req, res) {
