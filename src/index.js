@@ -24,14 +24,18 @@ app.use(methodOverride('_method'));;
 app.use(morgan('combined'));
 
 //bodyParse
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 
 //Template engine
 app.engine('hbs', handlebars.engine({
   extname: '.hbs',
   helpers: {
-    sum(a, b) { return a + b; },
+    sum(a, b) {
+      return a + b;
+    },
   }
 }));
 app.set('view engine', 'hbs');

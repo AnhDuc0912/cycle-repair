@@ -1,14 +1,11 @@
-const newsRouter = require('./news')
 const homeRouter = require('./home')
-const courseRouter = require('./course')
+const shopRouter = require('./shop')
 
 function route(app) {
 
     app.use('/', homeRouter);
 
-    app.use('/news', newsRouter);
-
-    app.use('/shop', courseRouter);
+    app.use('/shop', shopRouter);
 
     app.post('/search', (req, res) => {
         res.send('');
