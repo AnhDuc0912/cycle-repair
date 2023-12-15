@@ -8,7 +8,7 @@ function route(app) {
 
     app.use('/news', newsRouter);
 
-    app.use('/course', courseRouter);
+    app.use('/shop', courseRouter);
 
     app.post('/search', (req, res) => {
         res.send('');
