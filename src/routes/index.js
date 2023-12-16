@@ -1,11 +1,11 @@
 const homeRouter = require('./home')
-const shopRouter = require('./shop')
+const productRouter = require('./product')
 
 function route(app) {
 
     app.use('/', homeRouter);
 
-    app.use('/shop', shopRouter);
+    app.use('/product', productRouter);
 
     app.post('/search', (req, res) => {
         res.send('');
