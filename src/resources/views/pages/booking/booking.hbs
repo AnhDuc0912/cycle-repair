@@ -1,1 +1,84 @@
-<h1>Trang đặt lịch</h1>
+<body>
+    <h3 class="text-center">BOOKING
+    </h3>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Cột thông tin cá nhân -->
+            <div class="col-md-6">
+                <h4 class="fs-4 fw-bold text-center">Thông tin cá nhân</h4>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="firstName" class="form-label fs-5 fw-bold">Họ</label>
+                        <input type="text" class="form-control fs-6" id="firstName" placeholder="Nhập họ">
+                    </div>
+                    <div class="col">
+                        <label for="lastName" class="form-label fs-5 fw-bold">Tên</label>
+                        <input type="text" class="form-control fs-6" id="lastName" placeholder="Nhập tên">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label fs-5 fw-bold">Giới tính</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                            <label class="form-check-label" for="male">Nam</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                            <label class="form-check-label" for="female">Nữ</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="email" class="form-label fs-5 fw-bold">Địa chỉ email</label>
+                        <input type="email" class="form-control fs-6" id="email" placeholder="lykhanh0610203@gmail.com">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="address" class="form-label fs-5 fw-bold">Địa chỉ thường trú</label>
+                        <input type="text" class="form-control fs-6" id="address"
+                            placeholder="04 Nguyen Van Bao Street">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="telephone" class="form-label fs-5 fw-bold">Số điện thoại:</label>
+                        <input type="number" class="form-control fs-6" id="telephone" placeholder="0911231921">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+                <h4 class="fs-4 fw-bold text-center">Đặt lịch</h4>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="appointmentDate" class="form-label fs-5 fw-bold">Ngày đặt lịch</label>
+                        <input type="date" class="form-control fs-6" id="appointmentDate">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="appointmentTime" class="form-label fs-5 fw-bold">Giờ đặt lịch</label>
+                        <input type="time" class="form-control fs-6" id="appointmentTime">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="note" class="form-label fs-5 fw-bold">Ghi chú</label>
+                        <textarea class="form-control fs-6" id="note" rows="5" style="height:123px;"
+                            placeholder="Bạn cần ghi chú gì cho shop không?"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mx-auto w-50 d-flex align-items-center justify-content-center">
+            Gửi
+        </button>
+
+    </div>
+</body>
