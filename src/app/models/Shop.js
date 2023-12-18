@@ -6,8 +6,8 @@ const ObjectId = Schema.ObjectId;
 
 const Shop = new Schema({
     id: ObjectId,
-    idShop: { type: String, default: '', require: true },
     name: { type: String, default: '', require: true },
+    slug: { type: String, slug: 'name', unique: true, require: true },
     address: { type: String, default: '', require: true },
     timeOpened: { type: Timestamp, require: true },
     timeClosed: { type: Timestamp, require: true },

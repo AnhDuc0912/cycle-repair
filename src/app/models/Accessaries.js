@@ -13,7 +13,7 @@ const Accessaries = new Schema({
     price: { type: Number, default: 0, require: true },
     price_sale: { type: Number, default: 0, require: true },
     slug: { type: String, slug: "title", unique: true },
-    slugCat: { type: String, default: '', require: true },
+    slugCat: { type: ObjectId, require: true, ref: 'Categories' },
 }, {
     timestamps: true
 })

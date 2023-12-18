@@ -1,5 +1,4 @@
 const Accessaries = require('../models/Accessaries')
-const Services = require('../models/Services')
 const {
     multipleMongooseToObject,
     mongooseToObject
@@ -17,19 +16,20 @@ class ShopController {
 
     async store(req, res, next) {
         const formData = req.body;
-        const product = new Services(formData);
+        const product = new Accessaries(formData);
 
         console.log(product);
 
         try {
             await product.save();
-            res.send(product)
+            res.send(req.body);
         } catch (err) {
             // Gửi lỗi trực tiếp cho client
             res.status(500).json({
                 error: 'Internal Server Error'
             });
         }
+
     }
 }
 

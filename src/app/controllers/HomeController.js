@@ -1,4 +1,5 @@
 const Accessaries = require('../models/Accessaries')
+const Services = require('../models/Services')
 const {
     mongooseToObject, multipleMongooseToObject
 } = require("../../util/mongoose");
@@ -9,8 +10,9 @@ class HomeConttroller {
         //get4ccessaries
         try {
             const accessories = await Accessaries.find({}).limit(4);
+            const servies = await Services.find({});
             res.render('pages/home', {
-              accessories: multipleMongooseToObject(accessories)
+              accessories: multipleMongooseToObject(accessories, servies)
             });
           } catch (error) {
             // Gửi lỗi trực tiếp cho client

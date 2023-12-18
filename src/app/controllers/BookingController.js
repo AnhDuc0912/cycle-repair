@@ -10,6 +10,10 @@ class BookingController {
         res.render('pages/booking/booking');
     }
 
+    async store(req, res) {
+        res.send('gửi đi ')
+    }
+
 }
 
 module.exports = new BookingController();
