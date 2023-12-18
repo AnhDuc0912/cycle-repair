@@ -8,6 +8,7 @@ const Booking = new Schema({
     id: ObjectId,
     idCustomer: { type: ObjectId, ref: 'Customers' },
     notes: { type: String, default: '', require: true },
+    date: { type: Date, require: true },
     time: { type: Timestamp, require: true },
     status: { type: Number, require: true }
 }, {
