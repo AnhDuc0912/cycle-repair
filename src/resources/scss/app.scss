@@ -58,8 +58,17 @@ html body {
     line-height: 1.5
 }
 
-a {
-    text-decoration: none
+.homebuilder.clearfix a {
+    text-decoration: none;
+
+}
+
+.caption .name a {
+    color: black;
+}
+
+.homebuilder.clearfix a:hover {
+    color: rgb(46, 141, 219);
 }
 
 .header {
@@ -125,6 +134,8 @@ a {
     white-space: nowrap;
     margin-left: 242px;
 }
+
+
 
 .header-btn-icon {
     height: 18px;
