@@ -9,6 +9,9 @@ const Managers = new Schema({
     phone: { type: String, default: '', require: true },
     idShop: { type: String, default: '', require: true },
     email: { type: String, default: '', require: true },
+    userName: { type: String, default: '', require: true },
+    password: { type: String, default: '', require: true },
+    idRole: { type: String, default: '', require: true }
 }, {
     timestamps: true
 })
