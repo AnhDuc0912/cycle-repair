@@ -8,7 +8,8 @@ body {
 }
 
 a {
-    background-color: initial
+    background-color: initial;
+    text-decoration: none !important;
 }
 
 img {
@@ -60,7 +61,7 @@ html body {
 
 .homebuilder.clearfix a {
     text-decoration: none;
-
+    
 }
 
 .caption .name a {

@@ -6,7 +6,7 @@ const ObjectId = Schema.ObjectId;
 
 const Booking = new Schema({
     id: ObjectId,
-    idCustomer: { type: String, require: true },
+    idCustomer: { type: ObjectId, ref: 'Customers' },
     notes: { type: String, default: '', require: true },
     time: { type: Timestamp, require: true },
     status: { type: Number, require: true }
