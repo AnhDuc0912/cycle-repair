@@ -1281,7 +1281,9 @@ header .header-btn+.header-btn:active {
 
 header .header-btn.fa-star {
     letter-spacing: 1.5px;
-    padding-right: 15px
+    padding-right: -17px;
+    margin-right: -47px;
+    margin-top: 0px;
 }
 
 .demo-border {
@@ -2684,7 +2686,7 @@ aside ul li>a:hover {
 }
 
 .price-old {
-    text-decoration: line-through
+    text-decoration: line-through;
 }
 
 .price-new {
@@ -14293,10 +14295,6 @@ header .header-btn+.header-btn:active {
     background: #044eb4
 }
 
-header .header-btn.fa-star {
-    letter-spacing: 1.5px;
-    padding-right: 15px
-}
 
 .demo-border {
     margin-top: 15px;
