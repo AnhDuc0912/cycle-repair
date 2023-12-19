@@ -9,7 +9,7 @@ const app = express();
 const hostname = '127.0.0.1';
 const port = 8000;
 
-const route = require('./routes');
+const route = require('./routes/routes');
 const db = require('./config/db');
 
 //Connect to DB

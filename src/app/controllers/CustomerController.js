@@ -1,24 +1,22 @@
-const Booking = require('../models/Booking')
+const Customer = require('../models/Customers')
 
 const {
     multipleMongooseToObject,
     mongooseToObject
 } = require('../../util/mongoose')
 
-class BookingController {
-    //[GET] /course
-    async index(req, res) {
-        res.render('pages/booking/booking');
-    }
+class CustomerController {
 
     async store(req, res) {
         const formData = res.body;
         res.send(res.body)
-        const booking = Booking(formData);
+
+        const customer = Customer(formData);
 
         try {
-            await booking.save();
+            await customer.save();
             res.redirect('back')
+            
         } catch (err) {
             // Gửi lỗi trực tiếp cho client
             res.status(500).json({
@@ -29,4 +27,4 @@ class BookingController {
 
 }
 
-module.exports = new BookingController();
+module.exports = new CustomerController();

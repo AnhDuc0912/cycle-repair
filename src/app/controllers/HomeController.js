@@ -10,9 +10,10 @@ class HomeConttroller {
         //get4ccessaries
         try {
             const accessories = await Accessaries.find({}).sort({createdAt: -1}).limit(4);
-            const services = await Services.find({});
+            const services = await Services.find({}).limit(3);
             res.render('pages/home', {
-              accessories: multipleMongooseToObject(accessories, services)
+              accessories: multipleMongooseToObject(accessories),
+              services: multipleMongooseToObject(services)
             });
           } catch (error) {
             // Gửi lỗi trực tiếp cho client

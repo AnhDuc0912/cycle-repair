@@ -1,19 +1,18 @@
-<body>
-    <h3 class="text-center">BOOKING
-    </h3>
-    <div class="container mt-5">
-        <div class="row">
-            <!-- Cột thông tin cá nhân -->
-            <div class="col-md-6">
-                <h4 class="fs-4 fw-bold text-center">Thông tin cá nhân</h4>
+<h1 class="text-center">Trang đặt lịch</h1>
+<div class="container mt-5">
+    <div class="row">
+        <!-- Cột thông tin cá nhân -->
+        <div class="col-md-6">
+            <h4 class="fs-4 fw-bold text-center">Thông tin cá nhân</h4>
+            <form id="info-customer" action="/customer/create-new-customer" method="post">
                 <div class="row mb-3">
                     <div class="col">
                         <label for="firstName" class="form-label fs-5 fw-bold">Họ</label>
-                        <input type="text" class="form-control fs-6" id="firstName" placeholder="Nhập họ">
+                        <input type="text" class="form-control fs-6" id="firstName" placeholder="Nhập họ" name="ho">
                     </div>
                     <div class="col">
                         <label for="lastName" class="form-label fs-5 fw-bold">Tên</label>
-                        <input type="text" class="form-control fs-6" id="lastName" placeholder="Nhập tên">
+                        <input type="text" class="form-control fs-6" id="lastName" placeholder="Nhập tên" name="ten">
                     </div>
                 </div>
 
@@ -21,11 +20,11 @@
                     <div class="col">
                         <label class="form-label fs-5 fw-bold">Giới tính</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                            <input class="form-check-input" type="radio" name="gioiTinh" id="male" value="male">
                             <label class="form-check-label" for="male">Nam</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                            <input class="form-check-input" type="radio" name="gioiTinh" id="female" value="female">
                             <label class="form-check-label" for="female">Nữ</label>
                         </div>
                     </div>
@@ -33,52 +32,67 @@
                 <div class="row mb-3">
                     <div class="col">
                         <label for="email" class="form-label fs-5 fw-bold">Địa chỉ email</label>
-                        <input type="email" class="form-control fs-6" id="email" placeholder="lykhanh0610203@gmail.com">
+                        <input type="email" class="form-control fs-6" id="email" name="email" placeholder="lykhanh0610203@gmail.com">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
-                        <label for="address" class="form-label fs-5 fw-bold">Địa chỉ thường trú</label>
+                        <label for="address" class="form-label fs-5 fw-bold">Địa chỉ</label>
                         <input type="text" class="form-control fs-6" id="address"
-                            placeholder="04 Nguyen Van Bao Street">
+                            placeholder="04 Nguyen Van Bao Street" name="address">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="telephone" class="form-label fs-5 fw-bold">Số điện thoại:</label>
-                        <input type="number" class="form-control fs-6" id="telephone" placeholder="0911231921">
+                        <input type="tel" class="form-control fs-6" id="telephone" placeholder="0911231921" name="phone">
                     </div>
                 </div>
 
-            </div>
+            </form>
+        </div>
 
 
-            <div class="col-md-6">
-                <h4 class="fs-4 fw-bold text-center">Đặt lịch</h4>
+        <div class="col-md-6">
+            <h4 class="fs-4 fw-bold text-center">Đặt lịch</h4>
+            <form id="info-booking" action="/booking/create-new-booking" method="post">
                 <div class="row mb-3">
                     <div class="col">
                         <label for="appointmentDate" class="form-label fs-5 fw-bold">Ngày đặt lịch</label>
-                        <input type="date" class="form-control fs-6" id="appointmentDate">
+                        <input type="date" class="form-control fs-6" id="appointmentDate" name="date">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="appointmentTime" class="form-label fs-5 fw-bold">Giờ đặt lịch</label>
-                        <input type="time" class="form-control fs-6" id="appointmentTime">
+                        <input type="time" class="form-control fs-6" id="appointmentTime" name="time">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="note" class="form-label fs-5 fw-bold">Ghi chú</label>
                         <textarea class="form-control fs-6" id="note" rows="5" style="height:123px;"
-                            placeholder="Bạn cần ghi chú gì cho shop không?"></textarea>
+                            placeholder="Ghi chú" name="notes"></textarea>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
-        <button type="submit" class="btn btn-primary mx-auto w-50 d-flex align-items-center justify-content-center">
-            Gửi
-        </button>
-
     </div>
-</body>
+    <button id="submit" class="btn btn-primary mx-auto w-50 d-flex align-items-center justify-content-center">
+        Gửi
+    </button>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#submit').click(function (event) {
+            event.preventDefault()
+            const customerForm = $('#info-customer')
+            const bookingForm = $('#info-booking')
+
+            bookingForm.submit()
+            customerForm.submit()
+        });
+    });
+</script>

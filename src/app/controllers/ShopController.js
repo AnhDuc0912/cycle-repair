@@ -19,8 +19,6 @@ class ShopController {
         const formData = req.body;
         const product = new Services(formData);
 
-        console.log(product);
-
         try {
             await product.save();
             res.send(product)
