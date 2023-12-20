@@ -14,6 +14,9 @@ const port = 8000;
 
 const route = require('./routes/routes');
 const db = require('./config/db');
+const {
+  options
+} = require('./routes/home');
 
 app.use(cookieParser());
 app.use(
@@ -52,6 +55,11 @@ app.engine('hbs', handlebars.engine({
     sum(a, b) {
       return a + b;
     },
+    section: function(name, options) {
+      if (!this._sections) this._sections = {}
+      this._sections[name] = options.fn(this)
+      return null
+    }
   }
 }));
 app.set('view engine', 'hbs');
