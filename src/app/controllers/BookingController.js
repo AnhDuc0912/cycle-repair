@@ -1,9 +1,14 @@
-const Booking = require('../models/Booking')
+const express = require('express');
+const session = require('express-session');
+const app = express();
 
-const {
-    multipleMongooseToObject,
-    mongooseToObject
-} = require('../../util/mongoose')
+app.use(session({
+    secret: 'DucDepZaiVCL091203@#',
+    resave: false,
+    saveUninitialized: true,
+}));
+
+const Booking = require('../models/Booking')
 
 class BookingController {
     //[GET] /course
@@ -12,8 +17,17 @@ class BookingController {
     }
 
     async store(req, res) {
-        const formData = res.body;
-        res.send(res.body)
+        const formData = req.body;
+        const date = new Date(formData.date)
+        const [hours, minutes] = formData.time.split(':');
+        const time = new Date(formData.date).setHours(hours, minutes, 0, 0);
+
+        const customerID = req.session.customerId;
+
+        formData.date = date;
+        formData.time = time;
+        formData.idCustomer = customerID;
+
         const booking = Booking(formData);
 
         try {

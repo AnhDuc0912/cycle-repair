@@ -9,7 +9,7 @@ const Booking = new Schema({
     notes: { type: String, default: '', require: true },
     date: { type: Date, require: true },
     time: { type: Date, require: true },
-    status: { type: Number, require: true }
+    status: { type: Boolean, require: true }
 }, {
     timestamps: true
 })
