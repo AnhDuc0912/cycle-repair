@@ -16,6 +16,14 @@ button,
     transition: .3s all ease
 }
 
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
 button::-moz-focus-inner,
 .btn::-moz-focus-inner {
     border: none;
@@ -88,6 +96,10 @@ button.list-group-item:hover {
 #product-compare .table-responsive td .btn,
 #product-compare .table-responsive td .btn-danger {
     vertical-align: top
+}
+
+#product-category a {
+    text-decoration: none;
 }
 
 .pull-center {

@@ -32,23 +32,24 @@
                 <div class="row mb-3">
                     <div class="col">
                         <label for="email" class="form-label fs-5 fw-bold">Địa chỉ email</label>
-                        <input type="email" class="form-control fs-6" id="email" name="email" placeholder="lykhanh0610203@gmail.com">
+                        <input type="email" class="form-control fs-6" id="email" name="email"
+                            placeholder="lykhanh0610203@gmail.com">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="address" class="form-label fs-5 fw-bold">Địa chỉ</label>
-                        <input type="text" class="form-control fs-6" id="address"
-                            placeholder="04 Nguyen Van Bao Street" name="address">
+                        <input type="text" class="form-control fs-6" id="address" placeholder="04 Nguyen Van Bao Street"
+                            name="address">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="telephone" class="form-label fs-5 fw-bold">Số điện thoại:</label>
-                        <input type="tel" class="form-control fs-6" id="telephone" placeholder="0911231921" name="phone">
+                        <input type="tel" class="form-control fs-6" id="telephone" placeholder="0911231921"
+                            name="phone">
                     </div>
                 </div>
-
             </form>
         </div>
 
@@ -84,15 +85,29 @@
 
 </div>
 
+{{#section 'script'}}
 <script>
     $(document).ready(function () {
-        $('#submit').click(function (event) {
-            event.preventDefault()
-            const customerForm = $('#info-customer')
-            const bookingForm = $('#info-booking')
+        $('#submit').click(async function (event) {
+            event.preventDefault();
 
-            bookingForm.submit()
-            customerForm.submit()
+            const customerForm = $('#info-customer');
+            const bookingForm = $('#info-booking');
+
+            try {
+                // Sử dụng $.ajax để gửi form customer
+                await $.ajax({
+                    url: customerForm.attr('action'),
+                    method: 'POST',
+                    data: customerForm.serialize(),  // Thu thập dữ liệu từ form
+                });
+
+                bookingForm.submit()
+                return alert("Cảm ơn bạn đã đặt lịch")
+            } catch (error) {
+                console.error('Submission failed:', error);
+            }
         });
     });
 </script>
+{{/section}}

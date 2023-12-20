@@ -4,6 +4,9 @@ const handlebars = require('express-handlebars');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const cookieParser = require('cookie-parser');
+const session = require('express-session')
+
 
 const app = express();
 const hostname = '127.0.0.1';
@@ -11,6 +14,22 @@ const port = 8000;
 
 const route = require('./routes/routes');
 const db = require('./config/db');
+const {
+  options
+} = require('./routes/home');
+
+app.use(cookieParser());
+app.use(
+  session({
+    resave: false,
+    secret: 'DucDepZaiVCL091203@#',
+    saveUninitialized: false,
+    cookie: {
+      sameSite: 'strict',
+      secure: false,
+    }
+  })
+);
 
 //Connect to DB
 db.connect()
@@ -36,6 +55,11 @@ app.engine('hbs', handlebars.engine({
     sum(a, b) {
       return a + b;
     },
+    section: function(name, options) {
+      if (!this._sections) this._sections = {}
+      this._sections[name] = options.fn(this)
+      return null
+    }
   }
 }));
 app.set('view engine', 'hbs');
