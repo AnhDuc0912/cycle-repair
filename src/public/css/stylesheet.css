@@ -16,6 +16,14 @@ button,
     transition: .3s all ease
 }
 
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
 button::-moz-focus-inner,
 .btn::-moz-focus-inner {
     border: none;
@@ -88,6 +96,10 @@ button.list-group-item:hover {
 #product-compare .table-responsive td .btn,
 #product-compare .table-responsive td .btn-danger {
     vertical-align: top
+}
+
+#product-category a {
+    text-decoration: none;
 }
 
 .pull-center {
@@ -1812,7 +1824,8 @@ aside ul li>a:hover {
     color: #9b9ca1;
     display: block;
     margin: 0;
-    font: 300 12px/16px "Hind", sans-serif;
+    font: 300 12px/16px 'Roboto', sans-serif;
+    ;
     width: 100%;
     height: 55px;
     padding: 20.5px 35px 20.5px 30px;
@@ -3881,7 +3894,7 @@ input[type=color] {
     line-height: 24px;
     padding: 5.5px 10px 5.5px 33px;
     outline: none;
-    font-family: hind, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     letter-spacing: 1.2px;
     -moz-box-sizing: border-box;
@@ -8688,6 +8701,7 @@ div.swiper-container.swiper-slider {
     display: none
 }
 
+
 .newsletter .box-content {
     background-image: url(../../../../../image/catalog/newsletter.png);
     padding: 27px 28px 39px;
@@ -9237,7 +9251,7 @@ div.swiper-container.swiper-slider {
 }
 
 .main-bg .rd-parallax .description {
-    font-family: montserrat, sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
     position: absolute;
     top: 50%;
     right: 52px;
@@ -14822,7 +14836,7 @@ aside ul li>a:hover {
     color: #9b9ca1;
     display: block;
     margin: 0;
-    font: 300 12px/16px "Hind", sans-serif;
+    font: 300 12px/16px 'Roboto', sans-serif;
     width: 100%;
     height: 55px;
     padding: 20.5px 35px 20.5px 30px;
@@ -16891,7 +16905,7 @@ input[type=color] {
     line-height: 24px;
     padding: 5.5px 10px 5.5px 33px;
     outline: none;
-    font-family: hind, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     letter-spacing: 1.2px;
     -moz-box-sizing: border-box;
@@ -23431,7 +23445,7 @@ body.mobile_mode.mobile #style_switcher {
     padding: 0;
     font-size: 12px;
     line-height: 14px;
-    font-family: hind, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300
 }
 
