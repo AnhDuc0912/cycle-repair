@@ -32,9 +32,16 @@ class BookingController {
 
         try {
             await booking.save();
+            req.session.notification = {
+                type: 'success',
+                message: 'Đặt lịch thành công!'
+            };
             res.redirect('back')
         } catch (err) {
-            // Gửi lỗi trực tiếp cho client
+            req.session.notification = {
+                type: 'error',
+                message: 'Có lỗi xảy ra khi đặt lịch!'
+            };
             res.status(500).json({
                 error: 'Internal Server Error'
             });

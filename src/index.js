@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session')
-
+const middleware = require('./app/middlewares')
 
 const app = express();
 const hostname = '127.0.0.1';
@@ -18,6 +18,7 @@ const {
   options
 } = require('./routes/home');
 
+//session
 app.use(cookieParser());
 app.use(
   session({
@@ -30,6 +31,9 @@ app.use(
     }
   })
 );
+
+//middleware
+middleware(app)
 
 //Connect to DB
 db.connect()

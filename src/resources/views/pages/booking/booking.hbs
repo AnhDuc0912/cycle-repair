@@ -1,8 +1,14 @@
 <h1 class="text-center">Trang đặt lịch</h1>
 <div class="container mt-5">
+    {{#if notification}}
+    <div class="alert text-center alert-{{notification.type}}" role="alert">
+        {{notification.message}}
+    </div>
+    {{/if}}
     <div class="row">
         <!-- Cột thông tin cá nhân -->
         <div class="col-md-6">
+            <i class="bi-house"></i>
             <h4 class="fs-4 fw-bold text-center">Thông tin cá nhân</h4>
             <form id="info-customer" action="/customer/create-new-customer" method="post">
                 <div class="row mb-3">
@@ -103,7 +109,6 @@
                 });
 
                 bookingForm.submit()
-                return alert("Cảm ơn bạn đã đặt lịch")
             } catch (error) {
                 console.error('Submission failed:', error);
             }
