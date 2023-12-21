@@ -27,6 +27,7 @@ class BookingController {
         formData.date = date;
         formData.time = time;
         formData.idCustomer = customerID;
+        formData.status = false;
 
         const booking = Booking(formData);
 
@@ -36,14 +37,14 @@ class BookingController {
                 type: 'success',
                 message: 'Đặt lịch thành công!'
             };
-            res.redirect('back')
-        } catch (err) {
+            return res.redirect('back')
+        } catch (error) {
             req.session.notification = {
                 type: 'error',
                 message: 'Có lỗi xảy ra khi đặt lịch!'
             };
             res.status(500).json({
-                error: 'Internal Server Error'
+                error
             });
         }
     }

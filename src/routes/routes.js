@@ -1,10 +1,9 @@
 const homeRouter = require('./home')
 const productRouter = require('./shop')
 const bookingRouter = require('./booking')
-const customerRouter = require('./customer')
+const customerRouter = require('./customer');
 
 function route(app) {
-
     app.use('/', homeRouter);
 
     app.use('/shop', productRouter);
