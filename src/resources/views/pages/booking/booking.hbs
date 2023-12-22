@@ -65,7 +65,7 @@
                 <div class="row mb-3">
                     <div class="col">
                         <label for="appointmentDate" class="form-label fs-5 fw-bold">Ngày đặt lịch</label>
-                        <input type="date" class="form-control fs-6" id="appointmentDate" name="date">
+                        <input type="date" class="form-control fs-6  required" id="appointmentDate" name="date">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -93,6 +93,7 @@
 
 {{#section 'script'}}
 <script>
+
     $(document).ready(function () {
         $('#submit').click(async function (event) {
             event.preventDefault();
