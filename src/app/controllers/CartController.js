@@ -1,5 +1,4 @@
 const Accessaries = require('../models/Accessaries')
-const paginate = require('express-paginate')
 
 const {
     multipleMongooseToObject,
@@ -7,26 +6,12 @@ const {
 } = require('../../util/mongoose');
 const Shop = require('../models/Shop');
 
-class ShopController {
+class CartController {
     //[GET] /course
-    async index(req, res, next) {
-        try {
-            const [results, itemCount] = await Promise.all([
-                Accessaries.find({}).limit(req.query.limit).skip(req.skip).lean().exec(),
-                Accessaries.countDocuments()
-            ])
+    async index(req, res) {
+        // const product = await Accessaries.find({});
 
-            const pageCount = Number.parseInt(Math.ceil(itemCount / req.query.limit));
-
-            res.render('pages/product/product', {
-                product: results,
-                pageCount,
-                itemCount,
-                pages: paginate.getArrayPages(req)(3, pageCount, req.query.page)
-            });
-        } catch (err) {
-            next(err);
-        }
+        res.render('pages/cart/cart');
     }
 
     async detail(req, res) {
@@ -53,4 +38,4 @@ class ShopController {
     }
 }
 
-module.exports = new ShopController();
+module.exports = new CartController();
