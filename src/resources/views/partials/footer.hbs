@@ -36,17 +36,16 @@
                                         <div class="col-lg-4 col-sm-3 col-md-3">
                                             <h3 class="box-heading">Contact Us</h3>
                                             <div class="box-content footer_box">
+                                                {{#each shop }}
                                                 <address>
-                                                    <p><a class="footer-link"
-                                                            href="//www.google.com/maps/?q=40.6700,+-73.9400"
-                                                            target="_blank">My Company Glasgow D04 89GR</a><br>
-                                                        <a class="footer-link" href="callto:(800) 123-4567">(800)
-                                                            123-4567</a><br>
-                                                        <a
-                                                            href="mailto:livedemo-admin@templatemonster.me ">livedemo-admin@templatemonster.me</a>
+                                                    <p><a class="footer-link" href="#"
+                                                            target="_blank">{{address}}</a><br>
+                                                        <a class="footer-link" href="callto: {{tel}}">{{tel}}</a><br>
+                                                        <a href="mailto:{{ email }}">{{ email }} </a>
                                                     </p>
                                                 </address>
-                                                <p>7 Days a week from 9:00 am to 7:00 pm</p>
+                                                <p>{{ timeOpened }} - {{ timeClosed }} hằng ngày</p>
+                                                {{/each}}
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-sm-3 col-md-2">

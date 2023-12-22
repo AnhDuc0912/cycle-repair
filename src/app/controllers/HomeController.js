@@ -1,20 +1,27 @@
 const Accessaries = require('../models/Accessaries')
 const Services = require('../models/Services')
 const {
-  multipleMongooseToObject
+  multipleMongooseToObject,
+  mongooseToObject
 } = require("../../util/mongoose");
+const Shop = require('../models/Shop');
 
 class HomeConttroller {
   //[GET] / 
-  async index(req, res) {
+  index(req, res, next) {
     //get4ccessaries
     try {
-      const accessories = await Accessaries.find({}).sort({
-        createdAt: -1
-      }).limit(4);
-      res.render('pages/home', {
-        accessories: multipleMongooseToObject(accessories)
-      });
+      Promise.all([Accessaries.find({}).sort({
+          createdAt: -1
+        }).limit(4), Shop.findOne()])
+        .then(([accessories, shop]) => {
+          res.render('pages/home', {
+            accessories: multipleMongooseToObject(accessories),
+            shop: mongooseToObject(shop)
+          });
+          req.session.shop = shop;
+        })
+        .catch(next);
     } catch (error) {
       // Gửi lỗi trực tiếp cho client
       res.status(500).json({

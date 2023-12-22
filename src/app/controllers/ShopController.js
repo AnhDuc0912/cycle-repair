@@ -3,7 +3,8 @@ const Services = require('../models/Services')
 const {
     multipleMongooseToObject,
     mongooseToObject
-} = require('../../util/mongoose')
+} = require('../../util/mongoose');
+const Shop = require('../models/Shop');
 
 class ShopController {
     //[GET] /course
@@ -17,7 +18,7 @@ class ShopController {
 
     async store(req, res, next) {
         const formData = req.body;
-        const product = new Services(formData);
+        const product = new Shop(formData);
 
         try {
             await product.save();
