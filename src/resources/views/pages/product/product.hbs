@@ -113,28 +113,28 @@
                     </div>
                 </div>
                 <div class="product-filter_elem sort">
-                    <label class="control-label" for="input-sort">
-                        Sort By:
-                    </label>
-                    <div id="sbHolder_7302433" class="sbHolder"><a id="sbToggle_7302433" href="#"
-                             class="sbToggle sbToggleOpen"></a><a id="sbSelector_7302433" href="#" class="sbSelector">
-                            Default
-                        </a>
-                        <ul id="sbOptions_7302433" class="sbOptions"
-                            style="bottom: auto; top: 35px; max-height: 269.573px; display: none;">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-auto">
+                            <label class="control-label mb-3 form-floating" for="input-sort">Sort By:</label>
+                        </div>
+                        <div class="col-auto">
+                            <div class="input-group">
+                                <select name="type" id="type" class="form-control">
+                                    <option>--Select your ride--</option>
+                                    <option value="animals">Animal</option>
+                                    <option value="vehicles">Vehicle</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <span class="input-group-text text-secondary">
+                                        <i class="bi bi-chevron-down"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                            <li><a href="#" rel="#" class="">
-                                    Name (A - Z)
-                                </a></li>
-                            <li><a href="#" rel="#" class="">
-                                    Price (Low &gt; High)
-                                </a></li>
-                            <li><a href="#" rel="#" class="">
-                                    Rating (Highest)
-                                </a></li>
 
-                        </ul>
-                    </div><select id="input-sort" onchange="location = this.value;" sb="7302433" style="display: none;">
+                    <select id="input-sort" onchange="location = this.value;" sb="7302433" style="display: none;">
                         <option
                             value="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.sort_order&amp;order=ASC"
                             selected="selected">
