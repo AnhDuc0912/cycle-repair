@@ -1,8 +1,9 @@
 const homeRouter = require('./home')
 const productRouter = require('./shop')
 const bookingRouter = require('./booking')
-const customerRouter = require('./customer');
+const customerRouter = require('./customer')
 const serviceRouter = require('./service')
+const cartRouter = require('./cart')
 
 function route(app) {
     app.use('/', homeRouter);
@@ -13,7 +14,9 @@ function route(app) {
 
     app.use('/customer', customerRouter);
 
-    app.use('/service', serviceRouter)
+    app.use('/service', serviceRouter);
+
+    app.use('/cart', cartRouter);
 
     app.post('/search', (req, res) => {
         res.send('');

@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session')
 const middleware = require('./app/middlewares')
+const paginate = require('express-paginate');
 
 const app = express();
 const hostname = '127.0.0.1';
@@ -31,6 +32,9 @@ app.use(
 
 //middleware
 middleware(app)
+
+//paginate
+app.use(paginate.middleware(6, 50));
 
 //Connect to DB
 db.connect()

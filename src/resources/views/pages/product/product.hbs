@@ -9,41 +9,7 @@
     </span>
 
     <div>
-        <div class="row">
-            <div class="col-sm-4">
-                <span id="image-category" class="image-category"><img
-                        src="https://livedemo00-opencart.template-help.com/opencart_prod-23523/image/cache/catalog/products/product-19-370x220.png"
-                        alt="Subwoofers" title="Subwoofers" class="img-thumbnail"></span>
-            </div>
-            <div id="description-category" class="description description-category col-sm-8" style="height: 220px;">
-                <div class="description-category__cont">
-                    <h2 class="fs-6 fw-bold">Subwoofers</h2>
-                    <p>Sản phẩm của chúng tôi là sự kết hợp hoàn hảo giữa xu hướng
-                        thời trang mới
-                        nhất, độ bền thực sự
-                        và tính linh hoạt. </p>
-                    <p>
-                        <a href="https://demo.templatemonster.com/demo/80441.html?_gl=1*1ybpu9g*_ga*MjAwOTIzODQyLjE3MDI1NDI3OTk.*_ga_FTPYEGT5LY*MTcwMjU0Mjc5OS4xLjEuMTcwMjU0NDI2OC41OS4wLjA"
-                            name="slug"><b>Link:</b> https://demo.templatemonster.com
-                        </a>
-                    </p>
-                    <p name="address"><b>Địa chỉ:</b> 04 Nguyen Van Bao Street, Go Vap Disc, Ho Chi Minh City.</p>
 
-                    <div>
-                        <p name="timeOpened"><b>Thời gian mở cửa: </b>từ 7:00 AM đến 5:00 PM mỗi ngày.</p>
-                        <p name="timeClosed"><b>Thời gian đóng cửa:</b> từ 5:00 PM đến 7:00 AM ngày hôm sau.</p>
-                    </div>
-                    {{!-- <button type="button" class="btn-primary ani">Mua ngay<span class="over">Mua ngay</span><span
-                            class="out">Mua ngay</span></button> --}}
-
-                </div>
-                <div class="description-category__links" style="margin-top: 40px;">
-                    <a href="https://demo.templatemonster.com/demo/80441.html?_gl=1*1ybpu9g*_ga*MjAwOTIzODQyLjE3MDI1NDI3OTk.*_ga_FTPYEGT5LY*MTcwMjU0Mjc5OS4xLjEuMTcwMjU0NDI2OC41OS4wLjA"
-                        class="link show-desc" data-text-open="Xem thêm" data-text-close="Ẩn">Xem thêm</a>
-                </div>
-            </div>
-
-        </div>
     </div>
     <div class="row">
         <aside id="column-left" class="col-sm-3">
@@ -118,31 +84,74 @@
                     <label class="control-label me-2 w-50" for="input-sort">
                         Sort By:
                     </label>
+<<<<<<< HEAD
                     <select id="input-sort" class="form-select"
                         style="background-color: #f8f9fa; border: 1px solid #F8F9Fa;" onchange="location = this.value;">
                         <option value="#" selected="selected">Default</option>
                         <option value="#">Name (A - Z)</option>
                         <option value="#">Price (Low &gt; High)</option>
                         <option value="#">Rating (Highest)</option>
+=======
+                    <div id="sbHolder_7302433" class="sbHolder"><a id="sbToggle_7302433" href="#"
+                            class="sbToggle sbToggleOpen"></a><a id="sbSelector_7302433" href="#" class="sbSelector">
+                            Default
+                        </a>
+                        <ul id="sbOptions_7302433" class="sbOptions"
+                            style="bottom: auto; top: 35px; max-height: 269.573px; display: none;">
+
+                            <li><a href="#" rel="#" class="">
+                                    Name (A - Z)
+                                </a></li>
+                            <li><a href="#" rel="#" class="">
+                                    Price (Low &gt; High)
+                                </a></li>
+                            <li><a href="#" rel="#" class="">
+                                    Rating (Highest)
+                                </a></li>
+
+                        </ul>
+                    </div><select id="input-sort" onchange="location = this.value;" sb="7302433" style="display: none;">
+                        <option
+                            value="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.sort_order&amp;order=ASC"
+                            selected="selected">
+                            Default
+                        </option>
+                        <option
+                            value="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=pd.name&amp;order=ASC">
+                            Name (A - Z)
+                        </option>
+                        <option
+                            value="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.price&amp;order=ASC">
+                            Price (Low &gt; High)
+                        </option>
+                        <option
+                            value="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=rating&amp;order=DESC">
+                            Rating (Highest)
+                        </option>
+
+>>>>>>> be6aaa029497611771ec13593c487c60131a3cd5
                     </select>
                 </div>
 
             </div>
             <div class="row">
+                {{#each product }}
                 <div class="product-layout product-grid col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="product-thumb transition ">
                         <div class="image">
-                            <a class="lazy lazy-loaded"
-                                href="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/product&amp;path=28&amp;product_id=28"
-                                style="padding-bottom: 103.7037037037%">
+                            <a class="lazy lazy-loaded" href="shop/{{ slug }}" style="padding-bottom: 103.7037037037%">
                                 <img width="270" height="280" alt="Alpine SXE-1725S" name="name"
+<<<<<<< HEAD
                                     title="Alpine SXE-1725S" class="img-primary"
                                     data-src="https://livedemo00-opencart.template-help.com/opencart_prod-23523/image/cache/catalog/products/product-2-270x280.png"
                                     src="https://livedemo00-opencart.template-help.com/opencart_prod-23523/image/cache/catalog/products/product-1-270x280.png">
+=======
+                                    title="Alpine SXE-1725S" class="img-primary" data-src="{{ image }}"
+                                    src="{{ image }}">
+>>>>>>> be6aaa029497611771ec13593c487c60131a3cd5
                                 <img width="270" height="280" alt="Alpine SXE-1725S" name="name"
-                                    title="Alpine SXE-1725S" class="img-secondary"
-                                    data-src="https://livedemo00-opencart.template-help.com/opencart_prod-23523/image/cache/catalog/products/product-2-270x280.png"
-                                    src="https://livedemo00-opencart.template-help.com/opencart_prod-23523/image/cache/catalog/products/product-2-270x280.png">
+                                    title="Alpine SXE-1725S" class="img-secondary" data-src="{{ album.[0] }}"
+                                    src="{{ album.[0] }}">
                             </a>
                             <div class="cart-button">
                                 <button class="btn-icon quickview" type="button" data-toggle="tooltip" title=""
@@ -157,94 +166,45 @@
                             </div>
                         </div>
                         <div class="caption">
-                            <div class="name"><a
-                                    href="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/product&amp;path=28&amp;product_id=28">Alpine
-                                    SXE-1725S</a></div>
+                            <div class="name"><a href="{{ slug }}">{{title}}</a></div>
                             <p class="price">
-                                $57.00
+                                {{ vnd price }}
                             </p>
                             <button type="button" class="btn-primary ani" onclick="cart.add('28');">Add to Cart<span
                                     class="over">Add to Cart</span><span class="out">Add to Cart</span></button>
                         </div>
 
-                        <div class="aside">
-                            <div class="name"><a
-                                    href="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/product&amp;path=28&amp;product_id=28">Alpine
-                                    SXE-1725S</a></div>
-                            <p class="description">Our products are the perfect combination of the latest fashion
-                                trends, real durability and flexibi..</p>
-                            <p class="price">
-                                $57.00
-                            </p>
-                            <button class="btn-primary ani" type="button" onclick="cart.add('28');">Add to Cart<span
-                                    class="over">Add to Cart</span><span class="out">Add to Cart</span></button>
-                            <div class="clear"></div>
-                            <button class="product-btn" type="button" onclick="wishlist.add('28');"><i
-                                    class="fa fa-heart-o"></i><span>Add to Wish List</span></button>
-                            <button class="product-btn" type="button" onclick="compare.add('28');"><i
-                                    class="fa fa-random"></i><span>Compare this Product</span></button>
-                        </div>
                     </div>
                     <div class="clear"></div>
                 </div>
-                <div class="product-layout product-grid col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="product-thumb transition ">
-                        <div class="image">
-                            <a class="lazy lazy-loaded"
-                                href="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/product&amp;path=28&amp;product_id=46"
-                                style="padding-bottom: 103.7037037037%">
-                                <img width="270" height="280" alt="Boss AP1100R Amplifier"
-                                    title="Boss AP1100R Amplifier" class="img-primary " name="name"
-                                    data-src="https://livedemo00-opencart.template-help.com/opencart_prod-23523/image/cache/catalog/products/product-61-270x280.png"
-                                    src="https://livedemo00-opencart.template-help.com/opencart_prod-23523/image/cache/catalog/products/product-61-270x280.png">
-                                <img width="270" height="280" alt="Boss AP1100R Amplifier"
-                                    title="Boss AP1100R Amplifier" class="img-secondary" name="name"
-                                    data-src="https://livedemo00-opencart.template-help.com/opencart_prod-23523/image/cache/catalog/products/product-62-270x280.png"
-                                    src="https://livedemo00-opencart.template-help.com/opencart_prod-23523/image/cache/catalog/products/product-62-270x280.png">
+                {{/each}}
+                {{!-- {{#unless paginate.hasPreviousPages}} --}}
+                <div  id="pagination">
+                    <ul class="pager">
+                        <li class="previous">
+                            <a href="{{paginate.href true}}">
+                                <i class="fa fa-arrow-circle-left"></i>
+                                Previous
                             </a>
-                            <div class="cart-button">
-                                <button class="btn-icon quickview" type="button" data-toggle="tooltip" title=""
-                                    data-rel="details" data-product="46" data-original-title="Details"><i
-                                        class="fa fa-search-plus"></i></button>
-                                <button type="button" class="btn-icon" data-toggle="tooltip" title=""
-                                    onclick="wishlist.add('46');" data-original-title="Add to Wish List"><i
-                                        class="fa fa-heart-o"></i></button>
-                                <button type="button" class="btn-icon" data-toggle="tooltip" title=""
-                                    onclick="compare.add('46');" data-original-title="Compare this Product"><i
-                                        class="fa fa-random"></i></button>
-                            </div>
-                        </div>
-                        <div class="caption">
-                            <div class="name"><a
-                                    href="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/product&amp;path=28&amp;product_id=46">Boss
-                                    AP1100R Amplifier</a></div>
-                            <p class="price">
-                                $150.00
-                            </p>
-                            <button type="button" class="btn-primary ani" onclick="cart.add('46');">Add to Cart<span
-                                    class="over">Add to Cart</span><span class="out">Add to Cart</span></button>
-                        </div>
-
-                        <div class="aside">
-                            <div class="name"><a
-                                    href="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/product&amp;path=28&amp;product_id=46">Boss
-                                    AP1100R Amplifier</a></div>
-                            <p class="description">Our products are the perfect combination of the latest fashion
-                                trends, real durability and flexibi..</p>
-                            <p class="price">
-                                $150.00
-                            </p>
-                            <button class="btn-primary ani" type="button" onclick="cart.add('46');">Add to Cart<span
-                                    class="over">Add to Cart</span><span class="out">Add to Cart</span></button>
-                            <div class="clear"></div>
-                            <button class="product-btn" type="button" onclick="wishlist.add('46');"><i
-                                    class="fa fa-heart-o"></i><span>Add to Wish List</span></button>
-                            <button class="product-btn" type="button" onclick="compare.add('46');"><i
-                                    class="fa fa-random"></i><span>Compare this Product</span></button>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
+                        </li>
+                        {{#if pages}}
+                        {{#each pages}}
+                        <li>
+                            <a class="btn btn-default" href="{{url}}">{{number}}</a>
+                        </li>
+                        {{/each}}
+                        {{/if}}
+                        {{!-- {{#if paginate.hasNextPages(pageCount)}}
+                        <li class="next">
+                            <a href="{{ url }}">
+                                Next&nbsp;
+                                <i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                        </li>
+                        {{/if}} --}}
+                    </ul>
                 </div>
+                {{!-- {{/unless}} --}}
 
             </div>
 
@@ -265,6 +225,7 @@
 
 
     </div>
+<<<<<<< HEAD
     <script type="text/javascript">
         ; (function ($) {
             $(document).ready(function () {
@@ -321,4 +282,6 @@
     </script>
 
 
+=======
+>>>>>>> be6aaa029497611771ec13593c487c60131a3cd5
 </div>
