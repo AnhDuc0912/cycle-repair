@@ -3,7 +3,9 @@
     <span class="material-symbols-outlined fw-bold" name="name" style="font-size: 12px;">
         <a href="/shop" class="text-decoration-none">
             <i class="bi bi-house-door-fill"></i>
-        </a> > Subwoofers
+        </a> >
+        <span class="custom-text-style"
+            style="font-size: 13px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Subwoofers</span>
     </span>
 
     <div>
@@ -112,47 +114,16 @@
                             data-original-title="List"><i class="bi bi-list-stars"></i></button>
                     </div>
                 </div>
-                <div class="product-filter_elem sort">
-                    <div class="row g-3 align-items-center">
-                        <div class="col-auto">
-                            <label class="control-label mb-3 form-floating" for="input-sort">Sort By:</label>
-                        </div>
-                        <div class="col-auto">
-                            <div class="input-group">
-                                <select name="type" id="type" class="form-control">
-                                    <option>--Select your ride--</option>
-                                    <option value="animals">Animal</option>
-                                    <option value="vehicles">Vehicle</option>
-                                </select>
-                                <div class="input-group-append">
-                                    <span class="input-group-text text-secondary">
-                                        <i class="bi bi-chevron-down"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <select id="input-sort" onchange="location = this.value;" sb="7302433" style="display: none;">
-                        <option
-                            value="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.sort_order&amp;order=ASC"
-                            selected="selected">
-                            Default
-                        </option>
-                        <option
-                            value="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=pd.name&amp;order=ASC">
-                            Name (A - Z)
-                        </option>
-                        <option
-                            value="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.price&amp;order=ASC">
-                            Price (Low &gt; High)
-                        </option>
-                        <option
-                            value="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=rating&amp;order=DESC">
-                            Rating (Highest)
-                        </option>
-
+                <div class="product-filter_elem sort d-flex align-items-center">
+                    <label class="control-label me-2 w-50" for="input-sort">
+                        Sort By:
+                    </label>
+                    <select id="input-sort" class="form-select"
+                        style="background-color: #f8f9fa; border: 1px solid #F8F9Fa;" onchange="location = this.value;">
+                        <option value="#" selected="selected">Default</option>
+                        <option value="#">Name (A - Z)</option>
+                        <option value="#">Price (Low &gt; High)</option>
+                        <option value="#">Rating (Highest)</option>
                     </select>
                 </div>
 
@@ -166,7 +137,7 @@
                                 style="padding-bottom: 103.7037037037%">
                                 <img width="270" height="280" alt="Alpine SXE-1725S" name="name"
                                     title="Alpine SXE-1725S" class="img-primary"
-                                    data-src="https://livedemo00-opencart.template-help.com/opencart_prod-23523/image/cache/catalog/products/product-1-270x280.png"
+                                    data-src="https://livedemo00-opencart.template-help.com/opencart_prod-23523/image/cache/catalog/products/product-2-270x280.png"
                                     src="https://livedemo00-opencart.template-help.com/opencart_prod-23523/image/cache/catalog/products/product-1-270x280.png">
                                 <img width="270" height="280" alt="Alpine SXE-1725S" name="name"
                                     title="Alpine SXE-1725S" class="img-secondary"
@@ -278,6 +249,18 @@
             </div>
 
         </div>
+        <div class="d-flex justify-content-center">
+            <nav aria-label="...">
+                <ul class="pagination pagination-sm">
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link">1</span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                </ul>
+            </nav>
+        </div>
+
 
 
 
@@ -332,6 +315,8 @@
                 });
             });
         })(jQuery);
+
+
 
     </script>
 
