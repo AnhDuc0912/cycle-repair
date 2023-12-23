@@ -102,6 +102,14 @@ button.list-group-item:hover {
     text-decoration: none;
 }
 
+a.sf-with-ul {
+    text-decoration: none;
+}
+
+.product-product.container a {
+    text-decoration: none;
+}
+
 .pull-center {
     text-align: center
 }
