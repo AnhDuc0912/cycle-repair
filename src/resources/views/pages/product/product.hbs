@@ -3,7 +3,9 @@
     <span class="material-symbols-outlined fw-bold" name="name" style="font-size: 12px;">
         <a href="/shop" class="text-decoration-none">
             <i class="bi bi-house-door-fill"></i>
-        </a> > Subwoofers
+        </a> >
+        <span class="custom-text-style"
+            style="font-size: 13px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Subwoofers</span>
     </span>
 
     <div>
@@ -78,10 +80,18 @@
                             data-original-title="List"><i class="bi bi-list-stars"></i></button>
                     </div>
                 </div>
-                <div class="product-filter_elem sort">
-                    <label class="control-label" for="input-sort">
+                <div class="product-filter_elem sort d-flex align-items-center">
+                    <label class="control-label me-2 w-50" for="input-sort">
                         Sort By:
                     </label>
+<<<<<<< HEAD
+                    <select id="input-sort" class="form-select"
+                        style="background-color: #f8f9fa; border: 1px solid #F8F9Fa;" onchange="location = this.value;">
+                        <option value="#" selected="selected">Default</option>
+                        <option value="#">Name (A - Z)</option>
+                        <option value="#">Price (Low &gt; High)</option>
+                        <option value="#">Rating (Highest)</option>
+=======
                     <div id="sbHolder_7302433" class="sbHolder"><a id="sbToggle_7302433" href="#"
                             class="sbToggle sbToggleOpen"></a><a id="sbSelector_7302433" href="#" class="sbSelector">
                             Default
@@ -119,6 +129,7 @@
                             Rating (Highest)
                         </option>
 
+>>>>>>> be6aaa029497611771ec13593c487c60131a3cd5
                     </select>
                 </div>
 
@@ -130,8 +141,14 @@
                         <div class="image">
                             <a class="lazy lazy-loaded" href="shop/{{ slug }}" style="padding-bottom: 103.7037037037%">
                                 <img width="270" height="280" alt="Alpine SXE-1725S" name="name"
+<<<<<<< HEAD
+                                    title="Alpine SXE-1725S" class="img-primary"
+                                    data-src="https://livedemo00-opencart.template-help.com/opencart_prod-23523/image/cache/catalog/products/product-2-270x280.png"
+                                    src="https://livedemo00-opencart.template-help.com/opencart_prod-23523/image/cache/catalog/products/product-1-270x280.png">
+=======
                                     title="Alpine SXE-1725S" class="img-primary" data-src="{{ image }}"
                                     src="{{ image }}">
+>>>>>>> be6aaa029497611771ec13593c487c60131a3cd5
                                 <img width="270" height="280" alt="Alpine SXE-1725S" name="name"
                                     title="Alpine SXE-1725S" class="img-secondary" data-src="{{ album.[0] }}"
                                     src="{{ album.[0] }}">
@@ -192,8 +209,79 @@
             </div>
 
         </div>
+        <div class="d-flex justify-content-center">
+            <nav aria-label="...">
+                <ul class="pagination pagination-sm">
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link">1</span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                </ul>
+            </nav>
+        </div>
+
 
 
 
     </div>
+<<<<<<< HEAD
+    <script type="text/javascript">
+        ; (function ($) {
+            $(document).ready(function () {
+                var imgHeight,
+                    descContHeight,
+                    desc = $('#description-category'),
+                    descLink = $('#description-category .link');
+
+                $(window).on('load resize', function () {
+                    imgHeight = $('#image-category').outerHeight(),
+                        descContHeight = $('#description-category .description-category__cont').outerHeight() + $('#description-category .description-category__links').outerHeight() + 15;
+                });
+
+                $(window).on('load', function () {
+                    desc.css({
+                        "height": imgHeight
+                    });
+                });
+
+                $(window).on('resize', function () {
+
+                    if (!desc.hasClass('open')) {
+                        desc.css({
+                            "height": imgHeight
+                        });
+                    } else {
+                        desc.css({
+                            "height": descContHeight
+                        });
+                    }
+                });
+
+                descLink.on('click touchstart', function (e) {
+                    e.preventDefault();
+                    if (desc.hasClass('open')) {
+                        desc.css({
+                            "height": imgHeight
+                        })
+                            .removeClass('open');
+                        descLink.html($(this).data('textOpen'));
+                    } else {
+                        desc.css({
+                            "height": descContHeight
+                        })
+                            .addClass('open');
+                        descLink.html($(this).data('textClose'));
+                    }
+                });
+            });
+        })(jQuery);
+
+
+
+    </script>
+
+
+=======
+>>>>>>> be6aaa029497611771ec13593c487c60131a3cd5
 </div>
