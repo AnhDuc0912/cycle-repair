@@ -4,6 +4,7 @@ const {
     multipleMongooseToObject,
     mongooseToObject
 } = require('../../util/mongoose');
+const Users = require('../models/Users');
 
 class UserController {
     async getLogin(req, res) {
@@ -14,15 +15,24 @@ class UserController {
         res.send('úi xời')
     }
 
-    async detail(req, res) {
-        res.send('chi tiết sản phẩm');
-    }
-
     async getRegister(req, res) {
         res.send('trang đăng ký!');
     }
 
     async register(req, res) {
+        const formData = req.body;
+        const user = Users(formData);
+
+        try {
+            user.save();
+            res.send(201); 
+        } catch (error) {
+            res.status(500).json({
+                error: 'Internal Server Error'
+            });
+        }
+
+
         res.send('trang thêm sản phẩm')
     }
 }
