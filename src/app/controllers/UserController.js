@@ -8,7 +8,7 @@ const Users = require('../models/Users');
 
 class UserController {
     async getLogin(req, res) {
-        res.send('Trang đăng nhập!')
+        res.render('pages/auth/login')
     }
 
     async login(req, res) {
@@ -16,7 +16,7 @@ class UserController {
     }
 
     async getRegister(req, res) {
-        res.send('trang đăng ký!');
+        res.render('pages/auth/register');
     }
 
     async register(req, res) {
@@ -25,7 +25,7 @@ class UserController {
 
         try {
             user.save();
-            res.send(201); 
+            res.send(201);
         } catch (error) {
             res.status(500).json({
                 error: 'Internal Server Error'
