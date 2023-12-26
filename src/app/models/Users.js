@@ -3,17 +3,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
-const Managers = new Schema({
+const User = new Schema({
     id: ObjectId,
-    title: { type: String, default: '', require: true },
-    phone: { type: String, default: '', require: true },
-    idShop: { type: String, default: '', require: true },
+    ho: { type: String, default: '', require: true },
+    ten: { type: String, default: '', require: true },
+    phone: { type: String, default: '', require: true, unique: true },
     email: { type: String, default: '', require: true },
-    userName: { type: String, default: '', require: true },
     password: { type: String, default: '', require: true },
-    idRole: { type: String, default: '', require: true }
+    // idRole: { type: String, default: '', require: true }
 }, {
     timestamps: true
 })
 
-module.exports = mongoose.model('Managers', Managers);
+module.exports = mongoose.model('User', User);
