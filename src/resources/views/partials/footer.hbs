@@ -36,17 +36,16 @@
                                         <div class="col-lg-4 col-sm-3 col-md-3">
                                             <h3 class="box-heading">Contact Us</h3>
                                             <div class="box-content footer_box">
-                                                {{#if contact}}
+                                                {{#each shop }}
                                                 <address>
                                                     <p><a class="footer-link" href="#"
-                                                            target="_blank">{{contact.address}}</a><br>
-                                                        <a class="footer-link"
-                                                            href="callto: {{contact.tel}}">{{contact.tel}}</a><br>
-                                                        <a href="mailto:{{ contact.email }}">{{ contact.email }} </a>
+                                                            target="_blank">{{address}}</a><br>
+                                                        <a class="footer-link" href="callto: {{tel}}">{{tel}}</a><br>
+                                                        <a href="mailto:{{ email }}">{{ email }} </a>
                                                     </p>
                                                 </address>
-                                                <p>{{ contact.timeOpened }} - {{ contact.timeClosed }} hằng ngày</p>
-                                                {{/if}}
+                                                <p>{{ timeOpened }} - {{ timeClosed }} hằng ngày</p>
+                                                {{/each}}
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-sm-3 col-md-2">
@@ -77,15 +76,3 @@
             Design by <a class="zemez" href="https://zemez.io"> Zemez</a></div>
     </div><!-- [[%FOOTER_LINK]] -->
 </footer>
-
-<script>
-    // Client-side
-    fetch('/footer')
-        .then(response => response.json())
-        .then(data => {
-            // Xử lý dữ liệu ở đây
-            console.log(data);
-        })
-        .catch(error => console.error('Error:', error));
-
-</script>
