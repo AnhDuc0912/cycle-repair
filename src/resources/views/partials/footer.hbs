@@ -36,16 +36,14 @@
                                         <div class="col-lg-4 col-sm-3 col-md-3">
                                             <h3 class="box-heading">Contact Us</h3>
                                             <div class="box-content footer_box">
-                                                {{#each shop }}
                                                 <address>
                                                     <p><a class="footer-link" href="#"
-                                                            target="_blank">{{address}}</a><br>
-                                                        <a class="footer-link" href="callto: {{tel}}">{{tel}}</a><br>
-                                                        <a href="mailto:{{ email }}">{{ email }} </a>
+                                                            target="_blank">{{shop.address}}</a><br>
+                                                        <a class="footer-link" href="callto: {{shop.tel}}">{{ shop.tel }}</a><br>
+                                                        <a href="mailto:{{ shop.email }}">{{ shop.email }} </a>
                                                     </p>
                                                 </address>
-                                                <p>{{ timeOpened }} - {{ timeClosed }} hằng ngày</p>
-                                                {{/each}}
+                                                <p>Mở cửa {{ shop.timeOpened }} - {{ shop.timeClosed }} hằng ngày</p>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-sm-3 col-md-2">

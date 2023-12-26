@@ -1,15 +1,14 @@
-const Accessaries = require('../models/Accessaries')
+const Cart = require('../models/Cart');
 
 const {
     multipleMongooseToObject,
     mongooseToObject
 } = require('../../util/mongoose');
-const Shop = require('../models/Shop');
 
 class CartController {
     //[GET] /course
     async index(req, res) {
-        // const product = await Accessaries.find({});
+        // const product = await Ca.find({});
 
         res.render('pages/cart/cart');
     }
@@ -22,14 +21,24 @@ class CartController {
         res.send('trang thêm sản phẩm')
     }
 
-    async store(req, res, next) {
+    async store(req, res) {
         const formData = req.body;
-        const product = new Shop(formData);
+        // const userId = req.session.userId;
+        
+        const cart = new Cart(formData);
 
         try {
-            await product.save();
-            res.send(product)
+            await cart.save();
+            req.session.notification = {
+                type: 'success',
+                message: 'Thêm vào giỏ hàng thành công!'
+            };
+            res.redirect('back');
         } catch (err) {
+            req.session.notification = {
+                type: 'error',
+                message: 'Có lỗi xảy ra khi thêm vào giỏ hàng!'
+            };
             // Gửi lỗi trực tiếp cho client
             res.status(500).json({
                 error: 'Internal Server Error'
