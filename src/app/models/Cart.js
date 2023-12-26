@@ -5,9 +5,8 @@ const ObjectId = Schema.ObjectId;
 
 const Categories = new Schema({
     id: ObjectId,
-    title: { type: String, default: '', require: true },
-    slug: { type: String, slug: "title", unique: true },
-    parent: { type: ObjectId },
+    userID: { type: ObjectId, require: true },
+    
 }, {
     timestamps: true
 })

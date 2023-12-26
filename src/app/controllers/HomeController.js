@@ -8,27 +8,38 @@ const Shop = require('../models/Shop');
 
 class HomeConttroller {
   //[GET] / 
-  index(req, res, next) {
+  async index(req, res, next) {
     //get4ccessaries
+    const accessories = await Accessaries.find().sort({
+      createAt: -1
+    }).limit(4);
     try {
-      Promise.all([Accessaries.find({}).sort({
-          createdAt: -1
-        }).limit(4), Shop.findOne()])
-        .then(([accessories, shop]) => {
-          res.render('pages/home', {
-            accessories: multipleMongooseToObject(accessories),
-            shop: mongooseToObject(shop)
-          });
-          req.session.shop = shop;
-        })
-        .catch(next);
+      res.render('pages/home', {
+        accessories: multipleMongooseToObject(accessories),
+      });
     } catch (error) {
       // Gửi lỗi trực tiếp cho client
       res.status(500).json({
-        error: 'Internal Server Error'
+        error
       });
     }
   }
+
+  async getDataFooter(req, res) {
+    const contact = await Shop.findOne();
+    console.log();
+
+    try {
+      res.status(200).send({
+        contact: mongooseToObject(contact)
+      })
+    } catch (error) {
+      res.status(500).json({
+        error
+      });
+    }
+  }
+
   //[GET] /search
   search(req, res) {
     res.render('pages/search');

@@ -24,7 +24,7 @@ class CartController {
 
     async store(req, res, next) {
         const formData = req.body;
-        const product = new Shop(formData);
+        const product = new Cart(formData);
 
         try {
             await product.save();
