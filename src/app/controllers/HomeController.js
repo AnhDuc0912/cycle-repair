@@ -1,28 +1,32 @@
-const Accessaries = require('../models/Accessaries')
-const Services = require('../models/Services')
 const {
   multipleMongooseToObject,
   mongooseToObject
 } = require("../../util/mongoose");
-const Shop = require('../models/Shop');
+
+const Accessaries = require('../models/Accessaries')
+const Users = require('../models/Users');
 
 class HomeConttroller {
   //[GET] / 
   index(req, res, next) {
+    const userID = req.session.userId;
+
     //get4ccessaries
     Promise.all([Accessaries.find({}).sort({
         createdAt: -1
-      }).limit(4), Shop.findOne()])
-      .then(([accessories, shop]) => {
+      }).limit(4), Users.findOne({
+        _id: userID
+      })])
+      .then(([accessories, user]) => {
+        res.send({user})
         res.render('pages/home', {
           accessories: multipleMongooseToObject(accessories),
-          shop: mongooseToObject(shop)
+          user: mongooseToObject(user)
         });
-        req.session.shop = shop;
+
       })
       .catch(next);
-    try {
-    } catch (error) {
+    try {} catch (error) {
       // Gửi lỗi trực tiếp cho client
       res.status(500).json({
         error: 'Internal Server Error'

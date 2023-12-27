@@ -31,9 +31,10 @@ class UserController {
             const passwordMatch = await bcrypt.compare(enteredPassword, user.password);
 
             if (passwordMatch) {
-                res.status(200).send({
-                    user
-                });
+                req.session.userId = user._id;
+                req.session.authorized = true;
+
+                res.redirect('/')
             } else {
                 res.status(401).send({
                     error: 'Invalid password'
