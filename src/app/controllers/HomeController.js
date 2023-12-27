@@ -13,12 +13,12 @@ class HomeConttroller {
 
     //get4ccessaries
     Promise.all([Accessaries.find({}).sort({
-        createdAt: -1
-      }).limit(4), Users.findOne({
-        _id: userID
-      })])
+      createdAt: -1
+    }).limit(4), Users.findOne({
+      _id: userID
+    })])
       .then(([accessories, user]) => {
-        res.send({user})
+
         res.render('pages/home', {
           accessories: multipleMongooseToObject(accessories),
           user: mongooseToObject(user)
@@ -26,7 +26,7 @@ class HomeConttroller {
 
       })
       .catch(next);
-    try {} catch (error) {
+    try { } catch (error) {
       // Gửi lỗi trực tiếp cho client
       res.status(500).json({
         error: 'Internal Server Error'
