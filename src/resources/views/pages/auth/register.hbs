@@ -14,13 +14,7 @@
                 <h2 class="text-center fw-bold mt-3">
                     Đăng ký tài khoản 🚀
                 </h2>
-                <form id="form" class="auth-login-form mt-4" onsubmit="" method="post" autocomplete="off">
-                    <input type="hidden" name="csrf" value="">
-
-
-                    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
-                    <input type="hidden" name="action" value="REGISTER">
-
+                <form id="form" class="auth-login-form mt-4" action="/register" method="post" autocomplete="off">
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
@@ -57,9 +51,6 @@
                                     <div class="input-group">
                                         <input type="password" id="password-input" name="password" class="form-control"
                                             placeholder="Nhập mật khẩu" name="password">
-                                        <span class="input-group-text add-on" id="password-addon">
-                                            <i class="bi bi-eye-slash" id="togglePassword"></i>
-                                        </span>
                                     </div>
                                 </div>
                                 <div class="mb-3 input-group-prepend flex-basis-40 flex-grow-1">
@@ -68,12 +59,8 @@
                                         mật
                                         khẩu</label>
                                     <div class="input-group">
-                                        <input type="password" id="confirm-password-input" name="password2"
-                                            class="form-control" placeholder="Nhập lại mật khẩu">
-                                        <span class="input-group-text add-on" id="confirm-password-addon">
-                                            <i class="bi bi-eye-slash eye" id="togglePassword"></i>
-                                        </span>
-                                        <div class="invalid-feedback">Mật khẩu không khớp</div>
+                                        <input type="password" id="confirm-password-input" class="form-control"
+                                            placeholder="Nhập lại mật khẩu">
                                     </div>
                                 </div>
                             </div>
@@ -91,13 +78,11 @@
                             </label>
                         </div>
                         <div class="d-flex justify-content-between mt-4">
-                            <button type="button" id="zemez-newsletter-button"
+                            <button type="submit" id="zemez-newsletter-button"
                                 class="btn-primary btn-invert ani mt-1 w-100">
-                                <a href="/register" style="text-decoration: none; color: inherit;">
-                                    Đăng ký
-                                    <span class="over">Đăng ký</span>
-                                    <span class="out">Đăng ký</span>
-                                </a>
+                                Đăng ký
+                                <span class="over">Đăng ký</span>
+                                <span class="out">Đăng ký</span>
                             </button>
                         </div>
                 </form>
@@ -111,4 +96,3 @@
         </div>
     </div>
 </div>
-

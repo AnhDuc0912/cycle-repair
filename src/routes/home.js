@@ -4,6 +4,7 @@ const router = express.Router()
 const homeConttroller = require('../app/controllers/HomeController');
 const userController = require('../app/controllers/UserController');
 
+router.post('/logout', userController.logout);
 router.post('/login', userController.login);
 router.post('/register', userController.register);
 router.get('/login', userController.getLogin);
