@@ -10,18 +10,18 @@ class HomeConttroller {
   //[GET] / 
   index(req, res, next) {
     //get4ccessaries
+    Promise.all([Accessaries.find({}).sort({
+        createdAt: -1
+      }).limit(4), Shop.findOne()])
+      .then(([accessories, shop]) => {
+        res.render('pages/home', {
+          accessories: multipleMongooseToObject(accessories),
+          shop: mongooseToObject(shop)
+        });
+        req.session.shop = shop;
+      })
+      .catch(next);
     try {
-      Promise.all([Accessaries.find({}).sort({
-          createdAt: -1
-        }).limit(4), Shop.findOne()])
-        .then(([accessories, shop]) => {
-          res.render('pages/home', {
-            accessories: multipleMongooseToObject(accessories),
-            shop: mongooseToObject(shop)
-          });
-          req.session.shop = shop;
-        })
-        .catch(next);
     } catch (error) {
       // Gửi lỗi trực tiếp cho client
       res.status(500).json({
