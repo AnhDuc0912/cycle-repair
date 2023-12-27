@@ -1,10 +1,10 @@
-const Cart = require('../models/Cart');
+const bcrypt = require('bcrypt');
+const Users = require('../models/Users');
 
 const {
     multipleMongooseToObject,
     mongooseToObject
 } = require('../../util/mongoose');
-const Users = require('../models/Users');
 
 class UserController {
     async getLogin(req, res) {
@@ -12,7 +12,38 @@ class UserController {
     }
 
     async login(req, res) {
-        res.send('úi xời')
+        const phone = req.body.phone;
+        const enteredPassword = req.body.password;
+
+        try {
+            // Lấy người dùng từ cơ sở dữ liệu dựa trên số điện thoại
+            const user = await Users.findOne({
+                phone
+            });
+
+            if (!user) {
+                return res.status(404).send({
+                    error: 'User not found'
+                });
+            }
+
+            // So sánh mật khẩu
+            const passwordMatch = await bcrypt.compare(enteredPassword, user.password);
+
+            if (passwordMatch) {
+                res.status(200).send({
+                    user
+                });
+            } else {
+                res.status(401).send({
+                    error: 'Invalid password'
+                });
+            }
+        } catch (error) {
+            res.status(500).send({
+                error: 'Login failed'
+            });
+        }
     }
 
     async getRegister(req, res) {
@@ -21,19 +52,32 @@ class UserController {
 
     async register(req, res) {
         const formData = req.body;
-        const user = Users(formData);
 
         try {
-            user.save();
-            res.send(201);
+            // Tạo salt
+            const saltRounds = 10;
+            const salt = await bcrypt.genSalt(saltRounds);
+
+            // Băm mật khẩu với salt
+            const hashedPassword = await bcrypt.hash(formData.password, salt);
+
+            // Lưu hashedPassword vào cơ sở dữ liệu
+            formData.password = hashedPassword;
+            const user = new Users(formData);
+            await user.save();
+
+            res.status(201).send({
+                user
+            });
         } catch (error) {
-            res.status(500).json({
-                error: 'Internal Server Error'
+            res.status(500).send({
+                error
             });
         }
+    }
 
+    #encyrptPassword() {
 
-        res.send('trang thêm sản phẩm')
     }
 }
 

@@ -6,6 +6,7 @@ const {
     mongooseToObject
 } = require('../../util/mongoose');
 const Shop = require('../models/Shop');
+const UserController = require('./UserController');
 
 class ShopController {
     //[GET] /course
@@ -40,6 +41,7 @@ class ShopController {
     async store(req, res, next) {
         const formData = req.body;
         const product = new Shop(formData);
+        new UserController.enc
 
         try {
             await product.save();
