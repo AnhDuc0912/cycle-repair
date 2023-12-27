@@ -80,6 +80,7 @@ app.set('views', path.join(__dirname, 'resources', 'views'));
 //routes init
 route(app);
 
+
 app.listen(port, () => {
   console.log(`Sever running at http://${hostname}:${port}`)
 });
