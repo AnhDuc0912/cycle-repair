@@ -1,0 +1,114 @@
+<div class="auth-wrapper auth-cover">
+    <div class="row auth-inner m-0">
+        <div class="col-no-padding col-lg-6 col-md-6 col-sm-12 ps-4 pt-4 pb-4">
+            <div class="d-none d-lg-flex align-items-center login-cover w-100 h-100">
+                <div class="w-100 d-lg-flex align-items-center justify-content-center px-5">
+                    <img class="login-img"
+                        src="https://bizweb.dktcdn.net/thumb/1024x1024/100/233/922/products/sua-xe-nang-tay-24e49117-ddfa-4077-a356-480f3ed8643c.jpg?v=1538730667627"
+                        alt="Login Cover">
+                </div>
+            </div>
+        </div>
+        <div class="col d-flex align-items-center auth-bg col-lg-6 col-md-6 col-sm-12 position-relative">
+            <div class="col px-xl-2 mx-auto col-sm-8 col-md-8 col-lg-9">
+                <h2 class="text-center fw-bold mt-3">
+                    Đăng ký tài khoản 🚀
+                </h2>
+                <form id="form" class="auth-login-form mt-4" onsubmit="" method="post" autocomplete="off">
+                    <input type="hidden" name="csrf" value="">
+
+
+                    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+                    <input type="hidden" name="action" value="REGISTER">
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <label class="form-label" for="form3Example1">Họ</label>
+                                <input type="text" id="form3Example1" class="form-control" placeholder="Phạm"
+                                    name="ho" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <label class="form-label" for="form3Example2">Tên</label>
+                                <input type="text" id="form3Example2" class="form-control" placeholder="Đức"
+                                    name="ten" />
+
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="form1Example13" class="form-label fw-bold">Địa chỉ email</label>
+                            <input type="text" id="form1Example13" class="form-control form-control-lg"
+                                placeholder="lykhanh0610203@gmail.com" name="email" />
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="telephone" class="form-label fw-bold">Số điện thoại</label>
+                            <input type="text" id="telephone" class="form-control form-control-lg"
+                                placeholder="0973845201" name="phone" />
+                        </div>
+
+                        <div class="form-inline">
+                            <div class="input-group gap-3">
+                                <div class="mb-3 input-group-prepend flex-basis-40 flex-grow-1">
+                                    <label class="form-label mb-0" for="login-password">Mật khẩu</label>
+                                    <div class="input-group">
+                                        <input type="password" id="password-input" name="password" class="form-control"
+                                            placeholder="Nhập mật khẩu" name="password">
+                                        <span class="input-group-text add-on" id="password-addon">
+                                            <i class="bi bi-eye-slash" id="togglePassword"></i>
+                                        </span>
+
+                                    </div>
+                                </div>
+                                <div class="mb-3 input-group-prepend flex-basis-40 flex-grow-1">
+                                    <label class="form-label mb-0 text-overflow-ellipsis" for="login-password">Xác nhận
+                                        lại
+                                        mật
+                                        khẩu</label>
+                                    <div class="input-group">
+                                        <input type="password" id="confirm-password-input" name="password2"
+                                            class="form-control" placeholder="Nhập lại mật khẩu">
+                                        <span class="input-group-text add-on" id="confirm-password-addon">
+                                            <i class="bi bi-eye-slash eye" id="togglePassword"></i>
+                                        </span>
+                                        <div class="invalid-feedback">Mật khẩu không khớp</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check align-items-center d-flex">
+                            <input data-date="" type="checkbox" id="agree-policy" name="agree-policy">
+                            <label class="form-check-label mb-0 flex-shrink-1" for="agree-policy">
+                                Bằng việc đánh dấu vào ô này, tôi xác nhận đã đọc và đồng ý
+                                với
+                                <a class="ms-25 text-decoration-none text-primary" target="_blank" href="#">
+                                    Chính sách bảo mật
+                                </a>
+                                của StoreFlex, bao gồm quyền thu thập, sử dụng, và tiết lộ dữ liệu
+                                cá nhân của tôi theo pháp luật quy định.
+                            </label>
+                        </div>
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="button" id="zemez-newsletter-button"
+                                class="btn-primary btn-invert ani mt-1 w-100">
+                                <a href="/register" style="text-decoration: none; color: inherit;">
+                                    Đăng ký
+                                    <span class="over">Đăng ký</span>
+                                    <span class="out">Đăng ký</span>
+                                </a>
+                            </button>
+                        </div>
+                </form>
+                <p class="text-center mt-4 w-100">
+                    <span class="me-25">Đã có tài khoản?</span>
+                    <a class="text-decoration-none text-primary" href="/login">
+                        <span>Đăng nhập</span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -84,68 +84,13 @@
                     <label class="control-label me-2 w-50" for="input-sort">
                         Sort By:
                     </label>
-                    <div id="sbHolder_81333461" class="sbHolder"><a id="sbToggle_81333461" href="#"
-                            class="sbToggle"></a><a id="sbSelector_81333461" href="#" class="sbSelector">
-                            Default
-                        </a>
-                        <ul id="sbOptions_81333461" class="sbOptions" style="display: none;">
-                            <li><a href="#https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.sort_order&amp;order=ASC"
-                                    rel="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.sort_order&amp;order=ASC"
-                                    class="sbFocus">
-                                    Default
-                                </a></li>
-                            <li><a href="#https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=pd.name&amp;order=ASC"
-                                    rel="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=pd.name&amp;order=ASC">
-                                    Name (A - Z)
-                                </a></li>
-                            <li><a href="#https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=pd.name&amp;order=DESC"
-                                    rel="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=pd.name&amp;order=DESC">
-                                    Name (Z - A)
-                                </a></li>
-                            <li><a href="#https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.price&amp;order=ASC"
-                                    rel="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.price&amp;order=ASC">
-                                    Price (Low &gt; High)
-                                </a></li>
-                            <li><a href="#https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.price&amp;order=DESC"
-                                    rel="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.price&amp;order=DESC">
-                                    Price (High &gt; Low)
-                                </a></li>
-                            <li><a href="#https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=rating&amp;order=DESC"
-                                    rel="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=rating&amp;order=DESC">
-                                    Rating (Highest)
-                                </a></li>
-                            <li><a href="#https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=rating&amp;order=ASC"
-                                    rel="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=rating&amp;order=ASC">
-                                    Rating (Lowest)
-                                </a></li>
-                            <li><a href="#https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.model&amp;order=ASC"
-                                    rel="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.model&amp;order=ASC">
-                                    Model (A - Z)
-                                </a></li>
-                            <li><a href="#https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.model&amp;order=DESC"
-                                    rel="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.model&amp;order=DESC">
-                                    Model (Z - A)
-                                </a></li>
-                        </ul>
-                    </div><select id="input-sort" onchange="location = this.value;" sb="7302433" style="display: none;">
-                        <option
-                            value="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.sort_order&amp;order=ASC"
-                            selected="selected">
-                            Default
-                        </option>
-                        <option
-                            value="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=pd.name&amp;order=ASC">
-                            Name (A - Z)
-                        </option>
-                        <option
-                            value="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=p.price&amp;order=ASC">
-                            Price (Low &gt; High)
-                        </option>
-                        <option
-                            value="https://livedemo00-opencart.template-help.com/opencart_prod-23523/index.php?route=product/category&amp;path=28&amp;sort=rating&amp;order=DESC">
-                            Rating (Highest)
-                        </option>
-
+                    <select id="input-sort" class="form-select"
+                        style="background-color: #f8f9fa; border: 1px solid #F8F9Fa;"
+                        onchange="sortProducts(this.value)">
+                        <option value="#" selected="selected">Default</option>
+                        <option value="name">Name (A - Z)</option>
+                        <option value="price">Price (Low &gt; High)</option>
+                        <option value="rating">Rating (Highest)</option>
                     </select>
                 </div>
 
