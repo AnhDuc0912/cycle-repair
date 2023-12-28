@@ -16,27 +16,50 @@
 
                                 <nav id="top-links" class="nav toggle-wrap">
                                     <a class="toggle" href="#">
-                                        <i class="fa fa-user"></i> <span>My Account</span>
+                                        <span>My Account</span>
                                     </a>
                                     <ul class="toggle_cont">
+                                        {{#if user }}
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle text-decoration-none" href="/login"
+                                                id="myAccountDropdown" role="button" data-bs-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false">
+                                                <span>{{ user.ho }} {{ user.ten }} </span>
+                                            </a>
+                                            <ul class="dropdown-menu bg-info dropdown-menu-end text-start show"
+                                                aria-labelledby="myAccountDropdown"
+                                                style="background-color: rgb(87, 183, 231);transform: translate(-8px, 15px);inset: 0px auto auto 0px;margin: 0px;"
+                                                id="myDropdown">
+                                                <li><a class="dropdown-item " href="#">Wishlist</a></li>
+                                                <li><a class="dropdown-item " href="#">Shopping Cart</a></li>
+                                                <li>
+                                                    <form action="/logout" method="post">
+                                                        <button type="submit" class="dropdown-item text-white">
+                                                            Logout
+                                                        </button>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        {{else}}
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle text-decoration-none" href="/login"
                                                 id="myAccountDropdown" role="button" data-bs-toggle="dropdown"
                                                 aria-haspopup="true" aria-expanded="false">
                                                 <span>My Account</span>
                                             </a>
-                                            <ul class="dropdown-menu dropdown-menu-end text-start mx-auto show"
+                                            <ul class="dropdown-menu bg-info dropdown-menu-end text-start show"
                                                 aria-labelledby="myAccountDropdown"
-                                                style="background-color: rgb(87, 183, 231);transform: translate(-8px, 15px);/*  */inset: 0px auto auto 0px;margin: 0px;"
-                                                data-popper-placement="bottom-end">
+                                                style="background-color: rgb(87, 183, 231);transform: translate(-8px, 15px);inset: 0px auto auto 0px;margin: 0px;"
+                                                id="myDropdown">
                                                 <li><a class="dropdown-item " href="/login">Login</a></li>
                                                 <li><a class="dropdown-item " href="/register">Register</a>
                                                 </li>
                                                 <li><a class="dropdown-item " href="#">Wishlist</a></li>
                                                 <li><a class="dropdown-item " href="#">Shopping Cart</a></li>
-                                                <li><a class="dropdown-item " href="#">Checkout</a></li>
                                             </ul>
                                         </li>
+                                        {{/if}}
                                     </ul>
                                 </nav>
 

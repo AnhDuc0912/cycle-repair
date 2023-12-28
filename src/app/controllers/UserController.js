@@ -31,7 +31,7 @@ class UserController {
             const passwordMatch = await bcrypt.compare(enteredPassword, user.password);
 
             if (passwordMatch) {
-                req.session.userId = user._id;
+                req.session.user = user;
                 req.session.authorized = true;
 
                 res.redirect('/')
@@ -67,9 +67,7 @@ class UserController {
             const user = new Users(formData);
             await user.save();
 
-            res.status(201).send({
-                user
-            });
+            res.redirect('back')
         } catch (error) {
             res.status(500).send({
                 error
@@ -77,8 +75,18 @@ class UserController {
         }
     }
 
-    #encyrptPassword() {
+    logout(req, res) {
+        try {
+            req.session.user = null;
+            req.session.authorized = false;
 
+
+            res.redirect('back')
+        } catch (error) {
+            res.status(500).send({
+                error
+            });
+        }
     }
 }
 
