@@ -1,17 +1,15 @@
 const bcrypt = require('bcrypt');
 const Users = require('../models/Users');
-
 const {
-    multipleMongooseToObject,
-    mongooseToObject
-} = require('../../util/mongoose');
+    Error
+} = require('mongoose');
 
 class UserController {
     async getLogin(req, res) {
         res.render('pages/auth/login')
     }
 
-    async login(req, res) {
+    async login(req, res, next) {
         const phone = req.body.phone;
         const enteredPassword = req.body.password;
 
@@ -41,9 +39,7 @@ class UserController {
                 });
             }
         } catch (error) {
-            res.status(500).send({
-                error: 'Login failed'
-            });
+            next(error)
         }
     }
 
@@ -51,7 +47,7 @@ class UserController {
         res.render('pages/auth/register');
     }
 
-    async register(req, res) {
+    async register(req, res, next) {
         const formData = req.body;
 
         try {
@@ -69,13 +65,11 @@ class UserController {
 
             res.redirect('back')
         } catch (error) {
-            res.status(500).send({
-                error
-            });
+            next(error)
         }
     }
 
-    logout(req, res) {
+    logout(req, res, next) {
         try {
             req.session.user = null;
             req.session.authorized = false;
@@ -83,9 +77,7 @@ class UserController {
 
             res.redirect('back')
         } catch (error) {
-            res.status(500).send({
-                error
-            });
+            next(error)
         }
     }
 }

@@ -13,7 +13,7 @@ class HomeConttroller {
         createdAt: -1
       }).limit(4)
 
-      res.render('pages/home', {
+      res.render('pages/home/home', {
         accessories: multipleMongooseToObject(accessaries)
       });
     } catch (error) {
