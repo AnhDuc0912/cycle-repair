@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
 
-const validation = require('../app/middlewares/validationMiddleware');
+const validation = require('../../app/middlewares/validationMiddleware');
 const {
     customerSchema
-} = require('../app/validations');
+} = require('../../app/validations');
 
-const customerController = require('../app/controllers/CustomerController');
+const customerController = require('../../app/controllers/CustomerController');
 
 router.post('/create-new-customer', validation(customerSchema), customerController.store);
 router.get('/create-new-customer', (req, res) => {

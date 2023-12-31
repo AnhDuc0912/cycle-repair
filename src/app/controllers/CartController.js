@@ -8,9 +8,17 @@ const {
 class CartController {
     //[GET] /course
     async index(req, res) {
-        // const product = await Ca.find({});
+        const userId = req.session.user._id;
+        const cart = await Cart.find({userId});
 
-        res.render('pages/cart/cart');
+        try {
+            res.send({cart});
+            res.render('pages/cart/cart', cart);
+        } catch (error) {
+            res.status(500).json({
+                error: 'Internal Server Error'
+            });
+        }
     }
 
     async detail(req, res) {
@@ -23,8 +31,11 @@ class CartController {
 
     async store(req, res) {
         const formData = req.body;
-        // const userId = req.session.userId;
-        
+        const userId = req.session.user._id;
+
+        formData.userId = userId;
+        console.log(userId);
+
         const cart = new Cart(formData);
 
         try {

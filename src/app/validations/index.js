@@ -15,6 +15,11 @@ const bookingSchema = yup.object({
     time: yup.string().required(),
 });
 
+const loginShema = yup.object({
+    phone: yup.string().required(),
+    password: yup.string().required()
+})
+
 module.exports = {
     customerSchema,
     bookingSchema
