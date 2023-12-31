@@ -15,14 +15,14 @@
                     <h2 class="text-center fw-bold mt-3">Đăng nhập</h2>
                     <div class="row">
                         <div class="mb-4 ">
-                            <label for="telephone" class="form-label fw-bold fs-15 ">Số điện thoại</label>
+                            <label for="telephone" class="form-label fw-bold fs-6">Số điện thoại</label>
                             <input type="tel" id="telephone" class="form-control form-control-lg"
                                 placeholder="0973845201" name="phone" />
                         </div>
 
                         <div class="mb-4">
                             <div class="mb-3 input-group-prepend flex-basis-40 flex-grow-1">
-                                <label class="text-center fw-bold mt-3" for="login-password">Mật khẩu</label>
+                                <label class="text-center fw-bold mt-3 fs-6" for="login-password">Mật khẩu</label>
                                 <div class="input-group">
                                     <input type="password" id="password-input" name="password" class="form-control"
                                         placeholder="Nhập mật khẩu">
@@ -117,5 +117,20 @@
             }
         });
     });
+
+    $("#telephone").on("blur", function () {
+        validatePhoneNumber($(this).val());
+    });
+
+    function validatePhoneNumber(phoneNumber) {
+        phoneNumber = phoneNumber.replace(/\s+/g, '').replace(/\+/g, '');
+
+        if (!/^[0-9]+$/.test(phoneNumber) || phoneNumber.length !== 10 || phoneNumber[0] !== '0') {
+            alert("Số điện thoại không hợp lệ!");
+        }
+    }
+
+
+    
 </script>
 {{/section}}

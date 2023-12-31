@@ -1,0 +1,74 @@
+<div id="product-category" class="container">
+
+    <span class="material-symbols-outlined fw-bold" name="name" style="font-size: 12px;">
+        <a href="/shop" class="text-decoration-none">
+            <i class="bi bi-house-door-fill"></i>
+        </a> >
+        <span class="custom-text-style"
+            style="font-size: 13px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Đơn
+            hàng</span>
+    </span>
+
+
+
+    <div class="container mt-5">
+        <h4 class="fw-bold mt-2">THÔNG TIN ĐƠN HÀNG</h4>
+
+        <div class="row align-items-start">
+            <div class="col-md-6">
+                <div class="mb-4 pb-0">
+                    <label for="searchProduct" class="form-label fs-6 fw-bold">Tìm kiếm sản phẩm</label>
+                    <div class="input-group">
+                        <span class="input-group-text bi bi-search"></span>
+                        <input type="text" class="form-control" id="searchProduct"
+                            placeholder="Nhập tên sản phẩm cần tìm">
+                        <button class="btn btn-secondary fs-6" type="button">Tìm kiếm</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-4 pb-0 mt-4">
+                    <label for="NewOrderProduct" class="form-label"></label>
+                    <button class="btn btn-success fs-6 mt-2" type="button" id="NewOrderProduct">Tạo Đơn Hàng
+                        Mới</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="orderNote" class="form-label fs-6">Ghi Chú Đơn Hàng</label>
+                    <textarea class="form-control h-100" id="orderNote" rows="4"
+                        placeholder="Nhập ghi chú đơn hàng tại đây"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fs-6">Số lượng sản phẩm:</h5>
+                    <span id="productCount" class="fs-6">0d</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fs-6">Tổng tiền hàng:</h5>
+                    <span id="totalAmount" class="fs-6">$0.00</span>
+                </div>
+                <div class="mb-3">
+                    <label for="discount" class="form-label fs-6">Giảm Giá</label>
+                    <span id="discount" class="fs-6">0.00</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fs-6">Tạm Tính:</h5>
+                    <span id="subtotal" class="fs-6">$0.00</span>
+                </div>
+                <div class="mb-3">
+                    <label for="shippingFee" class="form-label fs-6">Phí Vận Chuyển</label>
+                    <span id="shippingFee" class="fs-6">0.00</span>
+                </div>
+                <div class="mb-3">
+                    <label for="amountDue" class="form-label fs-6">Phải Thu</label>
+                    <span id="amountDue" class="fs-6">0.00</span>
+                </div>
+                <button class="btn btn-success btn-lg btn-block fs-6" type="button">Thanh Toán</button>
+            </div>
+        </div>
+    </div>
+</div>
