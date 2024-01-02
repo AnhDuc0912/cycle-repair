@@ -16,11 +16,12 @@ const bookingSchema = yup.object({
 });
 
 const loginShema = yup.object({
-    phone: yup.string().required(),
-    password: yup.string().required()
+    email: yup.string().email('Email không hợp lệ').required('Vui lòng nhập email'),
+    password: yup.string().required('Vui lòng nhập mật khẩu')
 })
 
 module.exports = {
     customerSchema,
-    bookingSchema
+    bookingSchema,
+    loginShema
 }

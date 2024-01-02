@@ -1,11 +1,11 @@
-const authorizationMiddleware = require('./authenticationMiddleware')
+const authenticateToken = require('./authenticateTokenMiddleware')
 const errorMiddleware = require('./errorMiddleware')
 const notificationMiddleware = require('./notificationMiddleware')
 
 module.exports = function (app) {
     app.use(notificationMiddleware)
 
-    app.use(authorizationMiddleware)
+    app.use(authenticateToken)
 
     app.use(errorMiddleware)
 }

@@ -4,8 +4,13 @@ const router = express.Router()
 const homeConttroller = require('../../app/controllers/HomeController');
 const userController = require('../../app/controllers/UserController');
 
+const validation = require('../../app/middlewares/validationMiddleware');
+const {
+    loginShema
+} = require('../../app/validations');
+
 router.post('/logout', userController.logout);
-router.post('/login', userController.login);
+router.post('/login', validation(loginShema), userController.login);
 router.post('/register', userController.register);
 router.get('/login', userController.getLogin);
 router.get('/register', userController.getRegister);
