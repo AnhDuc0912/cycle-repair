@@ -35,7 +35,6 @@ class UserController {
                 });
 
                 res.cookie('token', token); // Lưu token vào cookie
-
                 res.redirect('/');
             } else {
                 res.status(401).send({
@@ -75,7 +74,7 @@ class UserController {
 
     logout(req, res, next) {
         try {
-            
+            res.clearCookie('token');
 
             res.redirect('back')
         } catch (error) {
