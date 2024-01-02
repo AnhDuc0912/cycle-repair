@@ -1,41 +1,30 @@
-const Cart = require('../models/Cart');
+const Wishlist = require('../models/Wishlist');
 
 const {
     multipleMongooseToObject,
     mongooseToObject
 } = require('../../util/mongoose');
 
-class CartController {
+class WishlistController {
     //[GET] /course
     async index(req, res) {
-        const userId = req.user.user._id;
-        const cart = await Cart.find({userId});
-
-        try {
-            res.send({cart})
-            // res.render('pages/cart/cart', cart);
-        } catch (error) {
-            res.status(500).json({
-                error: 'Internal Server Error'
-            });
-        }
+        res.send('trang sản phẩm yêu thích')
     }
 
     async detail(req, res) {
         res.send('chi tiết sản phẩm')
     }
-    
+
     async store(req, res) {
         const formData = req.body;
         const userId = req.session.user._id;
 
         formData.userId = userId;
-        console.log(userId);
 
-        const cart = new Cart(formData);
+        const wishlist = new Wishlist(formData);
 
         try {
-            await cart.save();
+            await wishlist.save();
             req.session.notification = {
                 type: 'success',
                 message: 'Thêm vào giỏ hàng thành công!'
@@ -54,4 +43,4 @@ class CartController {
     }
 }
 
-module.exports = new CartController();
+module.exports = new WishlistController();

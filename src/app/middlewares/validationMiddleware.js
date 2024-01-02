@@ -4,6 +4,7 @@ module.exports = validation = (schema) => async (req, res, next) => {
         await schema.validate(body);
         next();
     } catch (error) {
-        return res.status(400).json({error});
+        res.locals.error = error;
+        return res.status(400).json({error})
     }
 }
