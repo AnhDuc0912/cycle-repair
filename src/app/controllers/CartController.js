@@ -9,10 +9,10 @@ class CartController {
     //[GET] /course
     async index(req, res) {
         const userId = req.session.user._id;
-        const cart = await Cart.find({userId});
+        const cart = await Cart.find({ userId });
 
         try {
-            res.send({cart});
+
             res.render('pages/cart/cart', cart);
         } catch (error) {
             res.status(500).json({
