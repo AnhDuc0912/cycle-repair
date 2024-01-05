@@ -590,26 +590,7 @@
                         </li>
                     </ul>
                 </div>
-                <script>
-                    ; (function ($) {
-                        $(window).load(function () {
-                            var o = $('.sf-menu');
-                            o.superfish();
-                            o.find('li a').each(function () {
-                                if ($(location).attr('href').indexOf($(this).attr('href')) >= 0) {
-                                    $(this).addClass('active');
-                                    return;
-                                }
-                            })
-                            if (o.parents('aside').length) {
-                                var width = $('.container').outerWidth() - $('aside').outerWidth();
-                                o.find('.sf-mega').each(function () {
-                                    $(this).width(width);
-                                })
-                            }
-                        });
-                    })(jQuery);
-                </script>
+
 
                 <div class="box-cart">
                     <div id="cart" class="cart toggle-wrap">
@@ -635,3 +616,26 @@
     </div>
 
 </header>
+
+{{#section 'script'}}
+<script>
+    ; (function ($) {
+        $(window).load(function () {
+            var o = $('.sf-menu');
+            o.superfish();
+            o.find('li a').each(function () {
+                if ($(location).attr('href').indexOf($(this).attr('href')) >= 0) {
+                    $(this).addClass('active');
+                    return;
+                }
+            })
+            if (o.parents('aside').length) {
+                var width = $('.container').outerWidth() - $('aside').outerWidth();
+                o.find('.sf-mega').each(function () {
+                    $(this).width(width);
+                })
+            }
+        });
+    })(jQuery);
+</script>
+{{/section}}
