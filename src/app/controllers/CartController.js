@@ -1,4 +1,5 @@
 const Cart = require('../models/Cart');
+const Accessaries = require('../models/Accessaries');
 
 const {
     multipleMongooseToObject,
@@ -8,26 +9,41 @@ const {
 class CartController {
     //[GET] /course
     async index(req, res) {
-        const userId = req.session.user.user._id;
-        const cart = await Cart.find({userId});
+        const userId = req.user.user._id;
+        const cart = await Cart.find({
+            userId
+        });
+
+        const products = [];
+
+        for (const cartItem of cart) {
+            const product = await Accessaries.findById(cartItem.productId);
+            if (product) {
+                products.push(product);
+            }
+        }
 
         try {
-            res.send({cart})
-            // res.render('pages/cart/cart', cart);
-        } catch (error) {
-            res.status(500).json({
-                error: 'Internal Server Error'
+
+            res.render('pages/cart/cart', {
+                products: multipleMongooseToObject(products)
             });
+        } catch (error) {
+            next(error)
         }
     }
 
     async detail(req, res) {
         res.send('chi tiết sản phẩm')
     }
-    
+
     async store(req, res) {
         const formData = req.body;
+<<<<<<< HEAD
         const userId = req.session.user.user._id;
+=======
+        const userId = req.user.user._id;
+>>>>>>> KhanhLy
 
         formData.userId = userId;
 
