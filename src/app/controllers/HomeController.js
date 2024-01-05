@@ -17,7 +17,10 @@ class HomeConttroller {
         accessories: multipleMongooseToObject(accessaries)
       });
     } catch (error) {
-      next(error)
+      // Gửi lỗi trực tiếp cho client
+      res.status(500).json({
+        error: 'Internal Server Error'
+      });
     }
   }
   //[GET] /search
