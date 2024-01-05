@@ -69,9 +69,20 @@ app.engine('hbs', handlebars.engine({
       return x
     },
     section: function (name, options) {
-      if (!this._sections) this._sections = {}
-      this._sections[name] = options.fn(this)
-      return null
+      if (!this._sections) this._sections = {};
+
+      if (!this._sections[name]) {
+        this._sections[name] = [];
+      }
+
+      this._sections[name].push(options.fn(this));
+      return null;
+    },
+    yield: function (name, options) {
+      if (this._sections && this._sections[name]) {
+        return this._sections[name].join('\n');
+      }
+      return '';
     }
   }
 }));
