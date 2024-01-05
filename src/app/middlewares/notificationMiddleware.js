@@ -1,5 +1,6 @@
 module.exports = function notificationMiddleware(req, res, next) {
     res.locals.notification = req.session.notification;
-    req.session.notification = null;
+    delete req.session.notification;
+    
     next();
 }

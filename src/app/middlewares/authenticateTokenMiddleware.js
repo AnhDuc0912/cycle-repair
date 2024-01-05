@@ -4,17 +4,18 @@ function authenticateToken(req, res, next) {
     const token = req.cookies.token;
 
     if (!token) {
-        return res.redirect('/login');
+        return next();
     }
 
     jwt.verify(token, 'DucDepZaiVCL091203@#', (err, user) => {
         if (err) {
-            return res.status(403).send({ error: 'Forbidden: Invalid token' });
+            return res.status(403).send({
+                error: 'Forbidden: Invalid token'
+            });
         }
 
-        req.user = user;
-        res.locals = user;
-
+        req.session.user = user;
+        res.locals = req.session.user;
         next();
     });
 }

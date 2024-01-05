@@ -8,7 +8,7 @@ const {
 class CartController {
     //[GET] /course
     async index(req, res) {
-        const userId = req.user.user._id;
+        const userId = req.session.user.user._id;
         const cart = await Cart.find({userId});
 
         try {
@@ -27,20 +27,20 @@ class CartController {
     
     async store(req, res) {
         const formData = req.body;
-        const userId = req.session.user._id;
+        const userId = req.session.user.user._id;
 
         formData.userId = userId;
-        console.log(userId);
 
         const cart = new Cart(formData);
-
+        
         try {
             await cart.save();
             req.session.notification = {
                 type: 'success',
                 message: 'Thêm vào giỏ hàng thành công!'
             };
-            res.redirect('back');
+
+            res.redirect('/shop');
         } catch (err) {
             req.session.notification = {
                 type: 'error',

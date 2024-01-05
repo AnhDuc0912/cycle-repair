@@ -1,12 +1,12 @@
 const anonymousRouter = require('./anonymous')
 const userRouter = require('./user')
 
-const authenticateTokenMiddleware = require('../app/middlewares/authenticateTokenMiddleware');
+const authorizationMiddleware = require('../app/middlewares/authorizationMiddleware');
 
 function route(app) {
     app.use('/', anonymousRouter);
 
-    app.use('/my', authenticateTokenMiddleware, userRouter);
+    app.use('/my', authorizationMiddleware, userRouter);
 }
 
 module.exports = route

@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 
-async function connect() {
+async function connect(connectString) {
     try {
-        await mongoose.connect('mongodb+srv://dg1710dfkgard:41UL686Nu6WFeenu@cluster0.fhxpvhb.mongodb.net/cycle_repair_web');
+        await mongoose.connect(connectString);
 
     } catch (error) {
         console.log('Connect Fail');

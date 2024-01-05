@@ -1,4 +1,6 @@
 const express = require('express');
+require('dotenv').config();
+
 const path = require('path');
 const handlebars = require('express-handlebars');
 const morgan = require('morgan');
@@ -11,17 +13,20 @@ const paginate = require('express-paginate');
 
 const app = express();
 const hostname = '127.0.0.1';
-const port = 8000;
+const port = process.env.PORT;
 
 const route = require('./routes/routes');
 const db = require('./config/db');
+
+const nodemailer = require('nodemailer');
+const emailConfig = require('./config/email')
 
 //session
 app.use(cookieParser());
 app.use(
   session({
     resave: false,
-    secret: 'DucDepZaiVCL091203@#',
+    secret: process.env.SESSION_SECRET,
     saveUninitialized: false,
     cookie: {
       sameSite: 'strict',
@@ -31,6 +36,10 @@ app.use(
   })
 );
 
+//nodemailer
+const transporter = nodemailer.createTransport(emailConfig);
+app.locals.transporter = transporter;
+
 //middleware
 middleware(app)
 
@@ -38,7 +47,7 @@ middleware(app)
 app.use(paginate.middleware(6, 50));
 
 //Connect to DB
-db.connect()
+db.connect(process.env.DB_CONNECTION_STRING)
 
 app.use(express.static(path.join(__dirname, 'public')));
 

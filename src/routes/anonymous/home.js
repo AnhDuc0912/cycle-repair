@@ -9,6 +9,8 @@ const {
     loginShema
 } = require('../../app/validations');
 
+router.post('/forget-password', userController.sendEmailToRestorePassword);
+router.get('/forget-password', userController.forgetPassword);
 router.post('/logout', userController.logout);
 router.post('/login', validation(loginShema), userController.login);
 router.post('/register', userController.register);

@@ -89,7 +89,7 @@
                         onchange="sortProducts(this.value)">
                         <option value="#" selected="selected">Default</option>
                         <option value="name">Name (A - Z)</option>
-                        <option value="price">Price (Low &gt; High)</option>
+                        <option value="price">Price (Low &gt; High)</option>    
                         <option value="rating">Rating (Highest)</option>
                     </select>
                 </div>
@@ -130,7 +130,7 @@
                             <p class="price">
                                 {{ vnd price }}
                             </p>
-                            <form action="/cart/add-to-cart" method="post">
+                            <form action="/my/cart/add-to-cart" method="post">
                                 <input type="hidden" name="productId" value="{{ _id }}">
                                 <button type="submit" class="btn-primary ani" onclick="cart.add('28');">Add to
                                     Cart<span class="over">Add to Cart</span><span class="out">Add to
