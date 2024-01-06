@@ -1,8 +1,11 @@
+const mongoose = require("../../util/mongoose");
 const {
   multipleMongooseToObject,
+  mongooseToObject,
 } = require("../../util/mongoose");
 
 const Accessaries = require('../models/Accessaries')
+const Shop = require('../models/Shop')
 
 class HomeConttroller {
   //[GET] / 
@@ -27,6 +30,11 @@ class HomeConttroller {
 
   searchResult(req, res) {
     res.send('Search Result');
+  }
+
+  async getFooter(req, res) {
+    const contact = await Shop.findOne();
+    res.status(200).json({contact: mongoose.mongooseToObject(contact)});
   }
 }
 

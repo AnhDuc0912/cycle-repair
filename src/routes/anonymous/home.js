@@ -9,6 +9,7 @@ const {
     loginShema
 } = require('../../app/validations');
 
+router.get('/footer', homeConttroller.getFooter);
 router.post('/logout', userController.logout);
 router.post('/login', validation(loginShema), userController.login);
 router.post('/register', userController.register);
