@@ -1,0 +1,112 @@
+<div id="product-category" class="container">
+
+    <span class="material-symbols-outlined fw-bold" name="name" style="font-size: 12px;">
+        <a href="/shop" class="text-decoration-none">
+            <i class="bi bi-house-door-fill"></i>
+        </a>
+        <i class="bi bi-chevron-right"></i>
+        <span class="custom-text-style"
+            style="font-size: 13px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Sản
+            phẩm yêu thích</span>
+
+    </span>
+
+
+    <div class="row j-shopbag-title cart-list__header mt-3">
+        <div class="col-md-9 col-sm-12 col-lg-9">
+            <div class="col-md-8 col-sm-4 col-lg-8 cart-list__header-title">
+                <div class="form-check">
+                    <input class="form-check-input fs-4 bg-dark" type="checkbox" id="selectAll">
+                    <label class="form-check-label fs-4 fw-bold" for="selectAll"
+                        style="width:689px; border-bottom: 1px solid rgb(201, 199, 199);">Tất
+                        cả mặt
+                        hàng</label>
+                </div>
+            </div>
+
+
+
+            <div class="cart-item-row" style=" width: 725px;">
+                <div class="row mt-2" style="margin-left: -20px;">
+                    <div class="store-header-container not-platform-store" da-expose-code="cart-shop-name" style=""
+                        data-v-24269570="">
+
+                        {{#each products}}
+                        <div class="form-check">
+                            <div class="row">
+
+                                <div class="col-md-4 col-sm-3 col-lg-4">
+
+                                    <input class="form-check-input fs-5 bg-dark" style="margin-top: 104px;"
+                                        type="checkbox" id="selectAll" onchange="handleCheckboxChange(this, 200000)">
+
+                                    <div class="cart-img-gd" data-v-5ac192ae="">
+                                        <div class="checkbox-item" style="opacity:1;">
+
+                                        </div>
+                                        <div class="cart-list__item-img" data-v-5ac192ae="" data-v-5c2c01ec="">
+                                            <div class="gd-img" data-v-5c2c01ec="">
+                                                <div class="i-img-wrapper" data-v-5c2c01ec=""><img
+                                                        src="https://bizweb.dktcdn.net/thumb/large/100/429/537/products/11519-2.jpg?v=1643440571170"
+                                                        class="i-img" data-v-5c2c01ec="" style="width: 200px;">
+                                                    <div class="i-img-wrapper__mask" data-v-5c2c01ec=""></div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6 col-sm-6 ">
+                                    <a href="#" class="product-name fs-5 fw-bold text-decoration-none">
+                                        {{title}}
+                                    </a>
+
+
+                                    <div class="d-flex align-items-center">
+                                        <div class="product-price fw-bold" style="width: 408px; margin-top: 104px;"
+                                            onclick="updateTotalPrice(200000)">
+                                            Giá: 200.000đ <del style="color: red;">300.000đ</del>
+                                        </div>
+
+                                        <div class="input-group input-group-sm ms-3" style="margin-top: 100px;">
+                                            <button type="button" class="btn btn-secondary"
+                                                onclick="decrementQuantity()">-</button>
+                                            <span class="input-group-text" id="quantity">1</span>
+                                            <button type="button" class="btn btn-secondary"
+                                                onclick="incrementQuantity()">+</button>
+                                        </div>
+
+                                        <div class="ms-3 d-flex" style="margin-top: 92px;">
+                                            <a href="#" class="text-decoration-none me-3 col-lg-3 col-sm-4">
+                                                <i class="bi bi-search"></i>
+                                            </a>
+
+                                            <a href="#" class="text-decoration-none col-lg-3 col-sm-4">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        {{/each}}
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+{{#section 'script'}}
+
+{{/section}}

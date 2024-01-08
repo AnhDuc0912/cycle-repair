@@ -9,7 +9,7 @@ const {
 class CartController {
     //[GET] /course
     async index(req, res) {
-        const userId = req.user.user._id;
+        const userId = req.session.user.user_id;
         const cart = await Cart.find({
             userId
         });
@@ -39,16 +39,12 @@ class CartController {
 
     async store(req, res) {
         const formData = req.body;
-<<<<<<< HEAD
         const userId = req.session.user.user._id;
-=======
-        const userId = req.user.user._id;
->>>>>>> KhanhLy
 
         formData.userId = userId;
 
         const cart = new Cart(formData);
-        
+
         try {
             await cart.save();
             req.session.notification = {

@@ -8,7 +8,7 @@ const {
 class WishlistController {
     //[GET] /course
     async index(req, res) {
-        res.send('trang sản phẩm yêu thích')
+        res.render('pages/wishlist/wishlist');
     }
 
     async detail(req, res) {

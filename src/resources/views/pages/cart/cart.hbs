@@ -12,11 +12,11 @@
 
 
     <div class="row j-shopbag-title cart-list__header mt-3">
-        <div class="col-9">
-            <div class="col-md-8 cart-list__header-title">
+        <div class="col-md-9 col-sm-12 col-lg-9">
+            <div class="col-md-8 col-sm-4 col-lg-8 cart-list__header-title">
                 <div class="form-check">
                     <input class="form-check-input fs-4 bg-dark" type="checkbox" id="selectAll">
-                    <label class="form-check-label fs-4 fw-bold " for="selectAll"
+                    <label class="form-check-label fs-4 fw-bold" for="selectAll"
                         style="width:689px; border-bottom: 1px solid rgb(201, 199, 199);">Tất
                         cả mặt
                         hàng</label>
@@ -34,7 +34,7 @@
                         <div class="form-check">
                             <div class="row">
 
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-sm-3 col-lg-4">
 
                                     <input class="form-check-input fs-5 bg-dark" style="margin-top: 104px;"
                                         type="checkbox" id="selectAll" onchange="handleCheckboxChange(this, 200000)">
@@ -57,7 +57,7 @@
                                 </div>
 
 
-                                <div class="col-md-8">
+                                <div class="col-md-6 col-sm-6 ">
                                     <a href="#" class="product-name fs-5 fw-bold text-decoration-none">
                                         {{title}}
                                     </a>
@@ -78,11 +78,16 @@
                                         </div>
 
                                         <div class="ms-3 d-flex" style="margin-top: 92px;">
-                                            <i class="bi bi-search me-3"></i>
-                                            <i class="bi bi-heart me-3"></i>
-                                            <i class="bi bi-trash"></i>
+                                            <a href="#" class="text-decoration-none me-3 col-lg-3 col-sm-4">
+                                                <i class="bi bi-search"></i>
+                                            </a>
+                                            <a href="/my/wishlist" class="text-decoration-none me-3 col-lg-3 col-sm-4">
+                                                <i class="bi bi-heart"></i>
+                                            </a>
+                                            <a href="#" class="text-decoration-none col-lg-3 col-sm-4">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
                                         </div>
-
                                     </div>
                                 </div>
 
@@ -97,7 +102,7 @@
             </div>
 
         </div>
-        <div class="col-3">
+        <div class="col-3 flex-grow-1">
             <div class="col-md-4 bg-info bg-gradient text-start w-100">
                 <p class="fw-bold fs-4">Tóm tắt đơn hàng</p>
                 <p class="fw-bold text-end"><span id="totalPrice">0đ</span></p>
@@ -221,31 +226,6 @@
     });
 
 
-    jQuery(function ($) {
-        $('.woocommerce').on('change', 'input.qty', function () {
-            updateSummary();
-            $("[name='update_cart']").trigger("click");
-        });
-
-        $('.cart-item-row').on('change', '.form-check-input', function () {
-            updateSummary();
-        });
-
-        function updateSummary() {
-            var savedAmountElement = $('.fw-bold.text-end span');
-
-            var pricePerItem = 200000;
-
-            var selectedItems = $('.form-check-input:checked:not(#selectAll)').length;
-            var discountAmount = pricePerItem * selectedItems * quantity;
-
-            savedAmountElement.text(discountAmount.toLocaleString() + 'đ');
-
-            var totalPrice = pricePerItem * selectedItems;
-
-            $('#totalPrice').text(totalPrice.toLocaleString() + 'đ');
-        }
-    });
 
     // Cập nhật giảm giá tổng cộng và tiết kiệm
     function updateSummary() {
@@ -270,5 +250,38 @@
         tietKiemElement.text(savingAmount.toLocaleString() + 'đ');
     }
 
+    jQuery(function ($) {
+        $('.woocommerce').on('change', 'input.qty', function () {
+            $("[name='update_cart']").trigger("click");
+        });
+
+        $('.cart-item-row').on('change', '.form-check-input', function () {
+            // Gọi hàm cập nhật giá tổng cộng ở đây
+            updateSummary();
+        });
+
+        function updateSummary() {
+            var savedAmountElement = $('.fw-bold.text-end span');
+            var tietKiemElement = $('#tietkiem span');
+            var pricePerItem = 200000;
+            var savingPerItem = 100000;
+
+            var selectedItems = $('.form-check-input:checked').length;
+
+            var selectAllChecked = $('#selectAll').prop('checked');
+
+            if (selectAllChecked) {
+                selectedItems--;
+            }
+            var discountAmount = pricePerItem * quantity * selectedItems;
+
+            savedAmountElement.text(discountAmount.toLocaleString() + 'đ');
+
+            var savingAmount = savingPerItem * selectedItems;
+
+            tietKiemElement.text(savingAmount.toLocaleString() + 'đ');
+        }
+
+    });
 </script>
 {{/section}}
