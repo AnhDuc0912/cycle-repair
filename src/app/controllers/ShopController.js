@@ -47,7 +47,6 @@ class ShopController {
             await product.save();
             res.send(product)
         } catch (err) {
-            // Gửi lỗi trực tiếp cho client
             res.status(500).json({
                 error: 'Internal Server Error'
             });

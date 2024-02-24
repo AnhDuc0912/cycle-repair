@@ -16,10 +16,7 @@ const hostname = '127.0.0.1';
 const port = process.env.PORT;
 
 const route = require('./routes/routes');
-const db = require('./config/db');
-
-const nodemailer = require('nodemailer');
-const emailConfig = require('./config/email')
+const db = require('./config/db.config');
 
 //session
 app.use(cookieParser());
@@ -35,10 +32,6 @@ app.use(
     }
   })
 );
-
-//nodemailer
-const transporter = nodemailer.createTransport(emailConfig);
-app.locals.transporter = transporter;
 
 //middleware
 middleware(app)
@@ -95,6 +88,7 @@ app.engine('hbs', handlebars.engine({
     }
   }
 }));
+
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources', 'views'));
 

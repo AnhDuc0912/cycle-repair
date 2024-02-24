@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const Users = require('../models/Users');
+const sendEmail = require('../../util/mailer')
 
 class UserController {
     async getLogin(req, res) {
@@ -93,22 +94,15 @@ class UserController {
         res.send("forget pasword")
     }
 
-    sendEmailToRestorePassword(req, res, next) {
-        const transporter = req.app.locals.transporter;
+    async sendEmailToRestorePassword(req, res, next) {
+        try {
+            const email = req.body.email;
 
-        const mailOptions = {
-            from: '"Đức Đạt Phát" <phamquocanhduc2003hn@gmail.com>',
-            to: 'lydan0bancai@gmail.com',
-            subject: 'Test Email',
-            text: 'Hello, this is a test email!'
-        };
-
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                return console.error('Error sending email:', error);
-            }
-            console.log('Email sent:', info.response);
-        });
+            await sendEmail(email, 'Test Email', '<h2 style: {color: red}>Khánh Ly xinh gái</h2>');
+            res.status(200);
+        } catch (error) {
+            next(error);
+        }
     }
 }
 

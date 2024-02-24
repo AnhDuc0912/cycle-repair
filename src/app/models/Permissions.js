@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const Permissions = new Schema({
-    id: { type: String, require: true, unique: true },
-    title: { type: String, default: '', require: true },
+    id: { type: String, require: true },
+    title: { type: String, require: true, unique: true },
 }, {
     timestamps: true
 })
