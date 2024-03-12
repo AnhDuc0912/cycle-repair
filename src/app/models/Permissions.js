@@ -4,10 +4,8 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const Permissions = new Schema({
-    id: { type: String, require: true },
+    id: ObjectId,
     title: { type: String, require: true, unique: true },
-}, {
-    timestamps: true
 })
 
 module.exports = mongoose.model('Permissions', Permissions);

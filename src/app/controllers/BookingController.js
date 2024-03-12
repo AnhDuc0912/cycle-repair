@@ -8,7 +8,8 @@ app.use(session({
     saveUninitialized: true,
 }));
 
-const Booking = require('../models/Booking')
+const Booking = require('../models/Booking');
+const Users = require('../models/Users');
 
 class BookingController {
     //[GET] /course

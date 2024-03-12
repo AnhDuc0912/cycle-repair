@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const Roles = new Schema({
-    id: { type: String, require: true },
+    id: ObjectId,
     title: { type: String, require: true, unique: true },
-    permissions: [{type: String, ref: 'Permissions'}]
+    permissions: [{type: ObjectId, require: true, ref: "Permissions"}]
 })
 
 module.exports = mongoose.model('Roles', Roles);

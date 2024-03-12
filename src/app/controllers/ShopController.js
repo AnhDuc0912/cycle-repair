@@ -5,8 +5,9 @@ const {
     multipleMongooseToObject,
     mongooseToObject
 } = require('../../util/mongoose');
-const Shop = require('../models/Shop');
+const Roles = require('../models/Roles');
 const UserController = require('./UserController');
+const Permissions = require('../models/Permissions');
 
 class ShopController {
     //[GET] /course
@@ -41,7 +42,12 @@ class ShopController {
     //function to test adding something
     async store(req, res, next) {
         const formData = req.body;
-        const product = new Shop(formData);
+        const permit = await Permissions.find({
+            title: "ROOT"
+        })
+        formData.permissions = permit;
+        const product = new Roles(formData);
+        console.log(product);
 
         try {
             await product.save();

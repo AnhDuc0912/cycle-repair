@@ -10,7 +10,7 @@ const User = new Schema({
     phone: { type: String, default: '', require: true, unique: true },
     email: { type: String, default: '', require: true },
     password: { type: String, default: '', require: true },
-    roles: { type: String, default: '', require: true, ref: "Roles" }
+    role: { type: ObjectId, default: '', require: true, ref: "Roles" }
 }, {
     timestamps: true
 })
