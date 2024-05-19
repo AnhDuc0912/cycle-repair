@@ -1,0 +1,19 @@
+ <div class="container">
+        <h1 class="mb-4">Admin Web Scraping</h1>
+        <form action="/admin/service/scrape" method="POST">
+            <div class="mb-3">
+                <label for="url" class="form-label">URL của trang web:</label>
+                <input type="url" class="form-control" id="url" name="url" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Cào Dữ Liệu</button>
+        </form>
+
+        {{#if data }}
+            <h2 class="mt-5">Dữ liệu cào được:</h2>
+            <ul class="list-group mt-3">
+                {{#each data }}
+                    <li class="list-group-item">data</li>
+                {{/each}}
+            </ul>
+         {{/if }}
+    </div>

@@ -18,6 +18,9 @@ const port = process.env.PORT;
 const route = require('./routes/routes');
 const db = require('./config/db.config');
 
+app.use(express.urlencoded({ extended: true }));
+
+
 //session
 app.use(cookieParser());
 app.use(
