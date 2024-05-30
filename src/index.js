@@ -97,7 +97,7 @@ app.set('views', path.join(__dirname, 'resources', 'views'));
 
 //routes init
 route(app);
-
+app.use('/admin/upload', express.static(path.join(__dirname, 'uploads')))
 
 app.listen(port, () => {
   console.log(`Sever running at http://${hostname}:${port}`)

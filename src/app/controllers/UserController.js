@@ -35,7 +35,7 @@ class UserController {
                     expiresIn: '1d'
                 });
 
-                res.cookie('token', token); // Lưu token vào cookie
+                res.cookie('token', token);
 
                 res.redirect('/');
             } else {
