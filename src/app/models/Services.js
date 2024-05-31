@@ -12,7 +12,6 @@ const Services = new Schema({
   description: { type: String, default: '' },
   image: { type: String, maxLength: 255 },
   slug: { type: String, slug: "title" },
-  idShop: { type: ObjectId, ref: 'Shop' },
 });
 
 module.exports = mongoose.model('Services', Services);

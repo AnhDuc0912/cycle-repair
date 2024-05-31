@@ -2,6 +2,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const Users = require('../models/Users');
+const Roles = require('../models/Roles');
+const sendEmail = require('../../util/mailer')
 
 class UserController {
     async getLogin(req, res) {
@@ -14,29 +16,45 @@ class UserController {
 
         try {
             // Lấy người dùng từ cơ sở dữ liệu dựa trên số điện thoại
-            const user = await Users.findOne({
-                email
-            });
+            const user = await Users.aggregate([{
+                $lookup: {
+                    from: "roles",
+                    localField: "role",
+                    foreignField: "_id",
+                    as: "role"
+                }
+            }, {
+                $unwind: "$role"
+            }, {
+                $match: {
+                    "email": email
+                }
+            }]);
 
-            if (!user) {
+            if (!user.length > 0) {
                 return res.status(404).send({
                     error: 'User not found'
                 });
             }
 
             // So sánh mật khẩu
-            const passwordMatch = await bcrypt.compare(enteredPassword, user.password);
+            const passwordMatch = await bcrypt.compare(enteredPassword, user[0].password);
 
             if (passwordMatch) {
                 const token = jwt.sign({
-                    user
-                }, 'DucDepZaiVCL091203@#', {
+                    user: user[0]
+                }, process.env.SESSION_SECRET, {
                     expiresIn: '1d'
                 });
 
-                res.cookie('token', token); // Lưu token vào cookie
+                res.cookie('token', token);
 
-                res.redirect('/');
+                if (user[0].role.title !== 'USER') {
+                    res.redirect('/admin');
+                } else {
+                    res.redirect('/');
+                }
+
             } else {
                 res.status(401).send({
                     error: 'Invalid password'
@@ -93,22 +111,15 @@ class UserController {
         res.send("forget pasword")
     }
 
-    sendEmailToRestorePassword(req, res, next) {
-        const transporter = req.app.locals.transporter;
+    async sendEmailToRestorePassword(req, res, next) {
+        try {
+            const email = req.body.email;
 
-        const mailOptions = {
-            from: '"Đức Đạt Phát" <phamquocanhduc2003hn@gmail.com>',
-            to: 'lydan0bancai@gmail.com',
-            subject: 'Test Email',
-            text: 'Hello, this is a test email!'
-        };
-
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                return console.error('Error sending email:', error);
-            }
-            console.log('Email sent:', info.response);
-        });
+            await sendEmail(email, 'Test Email', '<h2 style: {color: red}>Khánh Ly xinh gái</h2>');
+            res.status(200);
+        } catch (error) {
+            next(error);
+        }
     }
 }
 

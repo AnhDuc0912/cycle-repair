@@ -15,7 +15,6 @@ class CourseConttroller {
                 })
             })
             .catch(err => next(err));
-
     }
     //[GET] /course/:slug
     async detail(req, res, next) {

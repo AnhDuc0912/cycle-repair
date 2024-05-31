@@ -16,10 +16,10 @@ const hostname = '127.0.0.1';
 const port = process.env.PORT;
 
 const route = require('./routes/routes');
-const db = require('./config/db');
+const db = require('./config/db.config');
 
-const nodemailer = require('nodemailer');
-const emailConfig = require('./config/email')
+app.use(express.urlencoded({ extended: true }));
+
 
 //session
 app.use(cookieParser());
@@ -35,10 +35,6 @@ app.use(
     }
   })
 );
-
-//nodemailer
-const transporter = nodemailer.createTransport(emailConfig);
-app.locals.transporter = transporter;
 
 //middleware
 middleware(app)
@@ -95,12 +91,13 @@ app.engine('hbs', handlebars.engine({
     }
   }
 }));
+
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources', 'views'));
 
 //routes init
 route(app);
-
+app.use('/admin/upload', express.static(path.join(__dirname, 'uploads')))
 
 app.listen(port, () => {
   console.log(`Sever running at http://${hostname}:${port}`)
