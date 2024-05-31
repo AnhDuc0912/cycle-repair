@@ -24,6 +24,8 @@
     <!-- Libraries Stylesheet -->
     <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    {{!-- CK Editor --}}
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 
 
@@ -86,40 +88,41 @@
     <script src="/lib/tempusdominus/js/moment.min.js"></script>
     <script src="/lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@ckeditor/ckeditor5-image@41.4.2/src/index.min.js"></script>
     <!-- Template Javascript -->
     <script src="/js/main.js"></script>
     {{!-- Declare rich text area --}}
     <script>
-        const getTokenFromCookie = () => {
-            let x = document.cookie;
-            const cookies = x.split(";");
-            console.log(cookies);
-            {{!-- cookies.forEach((item) => {
-                if (item.match("token=")) { console.log("vào") break; }
-
-            }) --}}
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
         }
 
-        const token = getTokenFromCookie();
+        const token = getCookie('token');
+        const crsfToken = getCookie('ckCsrfToken');
 
-        console.log(x)
-        ClassicEditor
+        console.log("bđ")
+         ClassicEditor
             .create(document.querySelector('#editor'), {
                 ckfinder: {
-                    uploadUrl: 'http://localhost:8000/admin/upload',
+                    uploadUrl: '/admin/upload',
 
                     withCredentials: true,
 
                     headers: {
-                        'X-CSRF-TOKEN': 'CSRF-Token',
-                        'Authorization': 'Bearer '
+                        'X-CSRF-TOKEN': crsfToken,
+                        'Authorization': 'Bearer ' + token
                     }
                 }
             })
+            .then(editor => {
+                window.editor = editor;
+                console.log('Editor initialized:', window.editor);
+            })
             .catch(error => {
-                console.error(error);
+                console.error('Error initializing editor:', error.stack);
             });
+        console.log("xong")
     </script>
 
 

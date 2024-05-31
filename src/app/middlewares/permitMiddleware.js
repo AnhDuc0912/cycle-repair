@@ -1,13 +1,11 @@
 const Roles = require("../models/Roles");
-const Users = require("../models/Users");
-
 
 module.exports = function permitMiddleware(...permittedRoles) {
     // return a middleware
     return async (request, response, next) => {
         // const permission = 
         const user = request.session.user.user;
-        const role = await Roles.findById(user.role).populate({
+        const role = await Roles.findById(user.role._id).populate({
             path: "permissions",
         });
 

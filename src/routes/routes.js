@@ -1,6 +1,6 @@
-const anonymousRouter = require('./anonymous')
-const userRouter = require('./user')
-const adminRouter = require('./admin')
+const anonymousRouter = require('./anonymous');
+const userRouter = require('./user');
+const adminRouter = require('./admin');
 
 const authorizationMiddleware = require('../app/middlewares/authorizationMiddleware');
 const permitMiddleware = require('../app/middlewares/permitMiddleware');
