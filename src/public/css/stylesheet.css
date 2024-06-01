@@ -9316,7 +9316,7 @@ div.swiper-container.swiper-slider {
 
 .rd-parallax-layer[data-type=html] {
     position: relative;
-    padding-top: 55px;
+    padding-top: 100px;
     padding-bottom: 46px;
     text-align: center;
     min-height: 480px
@@ -15420,7 +15420,8 @@ aside ul li>a:hover {
 }
 
 .product-thumb .name>a {
-    display: inline
+    display: inline;
+    text-decoration: none;
 }
 
 .product-thumb .price {
@@ -22254,7 +22255,7 @@ div.swiper-container.swiper-slider {
 
 .rd-parallax-layer[data-type=html] {
     position: relative;
-    padding-top: 55px;
+    padding-top: 100px;
     padding-bottom: 46px;
     text-align: center;
     min-height: 480px
@@ -25919,4 +25920,60 @@ footer .module-social .social-block {
     .delivery_page .table th {
         padding: 6px
     }
+}
+
+.total-section {
+    margin-left: 839px;
+    font-weight: bold;
+    font-size: 23px;
+
+    .inner-element {
+        color: black;
+        padding: 10px;
+    }
+}
+
+.text-center {
+    .form-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;/
+    }
+}
+
+.btn-primary {
+    display: inline-block;
+    height: 45px;
+    line-height: 45px;
+    top: 9px;
+    padding: 20px 20px;
+    margin: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #000;
+    border: 2px solid white;
+    /* Luôn hiển thị khung viền */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+
+    &:hover {
+        background-color: #333;
+        /* Đổi màu nền khi hover */
+        border-color: #fff;
+        /* Đổi màu viền khi hover */
+        color: white;
+    }
+
+
+}
+
+.container1 {
+    border-radius: 0px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 27px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }

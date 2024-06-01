@@ -11,264 +11,179 @@
     </span>
 
 
-    <div class="row j-shopbag-title cart-list__header mt-3">
-        <div class="col-9">
-            <div class="col-md-8 cart-list__header-title">
-                <div class="form-check">
-                    <input class="form-check-input fs-4 bg-dark" type="checkbox" id="selectAll">
-                    <label class="form-check-label fs-4 fw-bold " for="selectAll"
-                        style="width:689px; border-bottom: 1px solid rgb(201, 199, 199);">Tất
-                        cả mặt
-                        hàng</label>
-                </div>
-            </div>
 
 
-
-            <div class="cart-item-row" style=" width: 725px;">
-                <div class="row mt-2" style="margin-left: -20px;">
-                    <div class="store-header-container not-platform-store" da-expose-code="cart-shop-name" style=""
-                        data-v-24269570="">
-
-                        {{#each products}}
-                        <div class="form-check">
-                            <div class="row">
-
-                                <div class="col-md-4">
-
-                                    <input class="form-check-input fs-5 bg-dark" style="margin-top: 104px;"
-                                        type="checkbox" id="selectAll" onchange="handleCheckboxChange(this, 200000)">
-
-                                    <div class="cart-img-gd" data-v-5ac192ae="">
-                                        <div class="checkbox-item" style="opacity:1;">
-
-                                        </div>
-                                        <div class="cart-list__item-img" data-v-5ac192ae="" data-v-5c2c01ec="">
-                                            <div class="gd-img" data-v-5c2c01ec="">
-                                                <div class="i-img-wrapper" data-v-5c2c01ec=""><img
-                                                        src="https://bizweb.dktcdn.net/thumb/large/100/429/537/products/11519-2.jpg?v=1643440571170"
-                                                        class="i-img" data-v-5c2c01ec="" style="width: 200px;">
-                                                    <div class="i-img-wrapper__mask" data-v-5c2c01ec=""></div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-8">
-                                    <a href="#" class="product-name fs-5 fw-bold text-decoration-none">
-                                        {{title}}
-                                    </a>
-
-
-                                    <div class="d-flex align-items-center">
-                                        <div class="product-price fw-bold" style="width: 408px; margin-top: 104px;"
-                                            onclick="updateTotalPrice(200000)">
-                                            Giá: 200.000đ <del style="color: red;">300.000đ</del>
-                                        </div>
-
-                                        <div class="input-group input-group-sm ms-3" style="margin-top: 100px;">
-                                            <button type="button" class="btn btn-secondary"
-                                                onclick="decrementQuantity()">-</button>
-                                            <span class="input-group-text" id="quantity">1</span>
-                                            <button type="button" class="btn btn-secondary"
-                                                onclick="incrementQuantity()">+</button>
-                                        </div>
-
-                                        <div class="ms-3 d-flex" style="margin-top: 92px;">
-                                            <i class="bi bi-search me-3"></i>
-                                            <i class="bi bi-heart me-3"></i>
-                                            <i class="bi bi-trash"></i>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                        </div>
-                        {{/each}}
-
-                    </div>
-                </div>
-            </div>
-
+    <div class="container1">
+        <div class="auth-form__heading">
+            <h3 class="auth-form__heading text-center fw-bold">GIỎ HÀNG</h3>
         </div>
-        <div class="col-3">
-            <div class="col-md-4 bg-info bg-gradient text-start w-100">
-                <p class="fw-bold fs-4">Tóm tắt đơn hàng</p>
-                <p class="fw-bold text-end"><span id="totalPrice">0đ</span></p>
-                <p class="fw-bold text-end" id="tietkiem">Tiết kiệm: <span class="text-danger">0đ</span></p>
-                <button class="btn btn-dark btn-lg" style="width: 100%;">Thanh toán</button>
-            </div>
-
-            <div class="mt-2 col-md-4 bg-info bg-gradient text-start w-100 me-3">
-                <p class="fw-bold fs-4">Chúng tôi chấp nhận</p>
-                <div class="bank-img d-flex align-items-center flex-wrap">
-                    <img src="//img.ltwebstatic.com/images2_pi/2018/06/06/15282732253085529991.webp"
-                        class="c-img__con-m fsp-element me-3 mb-2 mx-2" data-v-5293e92d=""
-                        style="width: 50px; height: auto;">
-                    <img src="//img.ltwebstatic.com/images3_pi/2021/03/09/161528368123dd7a35ad8708b0dfc74b3630526891.webp"
-                        class="c-img__con-m fsp-element me-3 mb-2" data-v-5293e92d=""
-                        style="width: 50px; height: auto;">
-                    <img src="//img.ltwebstatic.com/images2_pi/2018/06/06/15282732803587566708.webp"
-                        class="c-img__con-m fsp-element me-3 mb-2" data-v-5293e92d=""
-                        style="width: 50px; height: auto;">
-                    <img src="//img.ltwebstatic.com/images2_pi/2018/06/06/15282732983375743706.webp"
-                        class="c-img__con-m fsp-element me-3 mb-2 mx-2" data-v-5293e92d=""
-                        style="width: 50px; height: auto;">
-                    <img src="//img.ltwebstatic.com/images2_pi/2018/06/06/1528273036537082707.webp" width="50"
-                        height="50" class="mb-2"><br>
-                    <img src="//img.ltwebstatic.com/images2_pi/2018/06/06/1528273241354964734.webp"
-                        class="c-img__con-m fsp-element me-3 mb-2 mx-3" data-v-5293e92d=""
-                        style="width: 50px; height: auto;">
-
-                    <img src="//img.ltwebstatic.com/images3_pi/2021/01/15/1610701410b3781f00695b77b833e6b6a5e38331a3.webp"
-                        class="c-img__con-m fsp-element me-3 mb-2 mx-2" data-v-5293e92d=""
-                        style="width: 50px; height: auto;">
-                    <img src="//img.ltwebstatic.com/images2_pi/2018/06/06/15282719811871317559.webp"
-                        class="c-img__con-m fsp-element mb-2" data-v-5293e92d="" style="width: 50px; height: auto;">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg col-lg-2"></nav>
+            <nav class="navbar navbar-expand-lg col-lg-4"></nav>
+            <nav class="navbar navbar-expand-lg col-lg-1 fw-bold">Đơn giá</nav>
+            <nav class="navbar navbar-expand-lg col-lg-1 fw-bold">
+                <div class="qty"></div>Số lượng
+            </nav>
+            <nav class="navbar navbar-expand-lg col-lg-1 fw-bold">Tổng</nav>
+            <nav class="navbar navbar-expand-lg col-lg-1"></nav>
+        </div>
+        <div class="row" id="cart-items">
+            <nav class="navbar navbar-expand-lg col-lg-2">
+                <a href="/my/cart" class="c2">
+                    <img width="150" height="170" loading="lazy"
+                        src="https://bizweb.dktcdn.net/thumb/large/100/429/537/products/11519-2.jpg?v=1643440571170"
+                        alt="" class="img-responsive logoimg1">
+                </a>
+            </nav>
+            <nav class="navbar navbar-expand-lg col-lg-4">
+                <h6 class="nn-ct">Chìa khóa cơ cao cấp</h6>
+            </nav>
+            <nav class="navbar navbar-expand-lg col-lg-1">
+                <div class="price-section2">
+                    <span class="price2" data-price="420000">₫420.000</span>
                 </div>
-            </div>
+            </nav>
+            <nav class="navbar navbar-expand-lg col-lg-1">
+                <div class="js-qty">
+                    <input type="number" class="quantity" value="1" min="1" data-index="0">
+                </div>
+            </nav>
+            <nav class="navbar navbar-expand-lg col-lg-1">
+                <div class="total" data-index="0">₫420.000</div>
+            </nav>
+            <nav class="navbar navbar-expand-lg col-lg-1">
+                <a href="" class="cart__remove" data-index="0">
+                    <small>Xóa</small>
+                </a>
+            </nav>
+        </div>
 
+
+        <div class="row" id="cart-items">
+            <nav class="navbar navbar-expand-lg col-lg-2">
+                <a href="/shop" class="c2">
+                    <img width="150" height="170" loading="lazy"
+                        src="https://bizweb.dktcdn.net/thumb/large/100/429/537/products/ms18139-compressed.jpg?v=1631524204223"
+                        alt="" class="img-responsive logoimg1">
+                </a>
+            </nav>
+            <nav class="navbar navbar-expand-lg col-lg-4">
+                <h6 class="nn-ct">Yên xe Vision 110 FI (2014-2015) - màu Nâu</h6>
+            </nav>
+            <nav class="navbar navbar-expand-lg col-lg-1">
+                <div class="price-section2">
+                    <span class="price2" data-price="520000">₫520.000</span>
+                </div>
+            </nav>
+            <nav class="navbar navbar-expand-lg col-lg-1">
+                <div class="js-qty">
+                    <input type="number" class="quantity" value="1" min="1" data-index="0">
+                </div>
+            </nav>
+            <nav class="navbar navbar-expand-lg col-lg-1">
+                <div class="total" data-index="0">₫520.000</div>
+            </nav>
+            <nav class="navbar navbar-expand-lg col-lg-1">
+                <a href="" class="cart__remove" data-index="0">
+                    <small>Xóa</small>
+                </a>
+            </nav>
+        </div>
+
+        <div class="row" id="cart-items">
+            <nav class="navbar navbar-expand-lg col-lg-2">
+                <a href="/shop" class="c2">
+                    <img width="150" height="170" loading="lazy"
+                        src="https://bizweb.dktcdn.net/thumb/1024x1024/100/429/537/products/3237-2.jpg?v=1634292201810"
+                        alt="" class="img-responsive logoimg1">
+                </a>
+            </nav>
+            <nav class="navbar navbar-expand-lg col-lg-4">
+                <h6 class="nn-ct">Bộ Gương Chiếu Hậu Xe Vision FI 110cc Có Ốc (2011-2014)</h6>
+            </nav>
+            <nav class="navbar navbar-expand-lg col-lg-1">
+                <div class="price-section2">
+                    <span class="price2" data-price="20000">₫20.000</span>
+                </div>
+            </nav>
+            <nav class="navbar navbar-expand-lg col-lg-1">
+                <div class="js-qty">
+                    <input type="number" class="quantity" value="1" min="1" data-index="0">
+                </div>
+            </nav>
+            <nav class="navbar navbar-expand-lg col-lg-1">
+                <div class="total" data-index="0">₫20.000</div>
+            </nav>
+            <nav class="navbar navbar-expand-lg col-lg-1">
+                <a href="" class="cart__remove" data-index="0">
+                    <small>Xóa</small>
+                </a>
+            </nav>
+        </div>
+
+
+
+        <div class="total-section ">
+            Tổng: <span id="total-amount">0đ</span>
+        </div>
+        <div class="text-center">
+            <div class="form-container">
+                <form action="/shop" method="post">
+                    <input type="hidden" name="productId" value="657f0c3e3d47bce4551df71b">
+                    <button type="submit" class="btn-primary ani" onclick="cart.add('28');">Quay lại trang
+                        sản phẩm
+                        <span class="over">Quay lại trang sản phẩm</span>
+                        <span class="out">Quay lại trang sản phẩm</span>
+                    </button>
+                </form>
+
+                <form action="#" method="post">
+                    <input type="hidden" name="productId" value="657f0c3e3d47bce4551df71b">
+                    <button type="submit" class="btn-primary ani" onclick="cart.add('28');">Thanh toán
+                        <span class="over">Thanh toán</span>
+                        <span class="out">Thanh toán</span>
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
+</div>
+</div>
 
-</div>
-</div>
+
 
 {{#section 'script'}}
 <script>
     // Số lượng mặt hàng
-    let quantity = 1;
-
-    function incrementQuantity() {
-        quantity++;
-        document.getElementById('quantity').innerText = quantity;
-        updateSummary();
-    }
-
-    function decrementQuantity() {
-        if (quantity > 1) {
-            quantity--;
-            document.getElementById('quantity').innerText = quantity;
-            updateSummary();
-        }
-    }
-
-    // Chọn tất cả mặt hàng
-    document.getElementById('selectAll').addEventListener('click', function () {
-        var checkboxes = document.querySelectorAll('.form-check-input.fs-5.bg-dark');
-        checkboxes.forEach(function (checkbox) {
-            checkbox.checked = document.getElementById('selectAll').checked;
+    function updateTotal() {
+        let totalAmount = 0;
+        document.querySelectorAll('.row[id^="cart-items"]').forEach(function (row) {
+            const priceElement = row.querySelector('.price2');
+            const quantityElement = row.querySelector('.quantity');
+            const totalElement = row.querySelector('.total');
+            const price = parseInt(priceElement.getAttribute('data-price'));
+            const quantity = parseInt(quantityElement.value);
+            const total = price * quantity;
+            totalElement.textContent = '₫' + total.toLocaleString();
+            totalAmount += total;
         });
-        updateSummary();
+        document.getElementById('total-amount').textContent = '₫' + totalAmount.toLocaleString();
+    }
+
+    document.querySelectorAll('.quantity').forEach(function (input) {
+        input.addEventListener('input', updateTotal);
     });
 
-    // Cập nhật giỏ hàng khi thay đổi số lượng
-    document.querySelectorAll('.woocommerce input.qty').forEach(function (input) {
-        input.addEventListener('change', function () {
-            $("[name='update_cart']").trigger("click");
-            quantity = parseInt(input.value); // Cập nhật số lượng
-            updateSummary();
+    document.querySelectorAll('.cart__remove').forEach(function (button) {
+        button.addEventListener('click', function (event) {
+            event.preventDefault();
+            const index = button.getAttribute('data-index');
+            document.getElementById(`cart-items-${index}`).remove();
+            updateTotal();
         });
     });
 
-
-    // Cập nhật giảm giá tổng cộng
-    function updateSummary() {
-        var savedAmountElement = $('.fw-bold.text-end span');
-        var pricePerItem = 200000;
-
-        var selectedItems = $('.form-check-input:checked').length;
-
-        var selectAllChecked = $('#selectAll').prop('checked');
-
-        if (selectAllChecked) {
-            selectedItems--;
-        }
-
-        var discountAmount = pricePerItem * quantity * selectedItems;
-
-        savedAmountElement.text(discountAmount.toLocaleString() + 'đ');
-    }
-
-
-    jQuery(function ($) {
-        $('.woocommerce').on('change', 'input.qty', function () {
-            $("[name='update_cart']").trigger("click");
-        });
-
-        $('.cart-item-row').on('change', '.form-check-input', function () {
-            updateSummary();
-        });
-
-        // Hàm cập nhật tổng cộng
-        function updateSummary() {
-            var savedAmountElement = $('.fw-bold.text-end span');
-
-            var pricePerItem = 200000;
-
-            var selectedItems = $('.form-check-input:checked').length;
-
-            var discountAmount = pricePerItem * selectedItems;
-
-            savedAmountElement.text(discountAmount.toLocaleString() + 'đ');
-        }
-    });
-
-
-    jQuery(function ($) {
-        $('.woocommerce').on('change', 'input.qty', function () {
-            updateSummary();
-            $("[name='update_cart']").trigger("click");
-        });
-
-        $('.cart-item-row').on('change', '.form-check-input', function () {
-            updateSummary();
-        });
-
-        function updateSummary() {
-            var savedAmountElement = $('.fw-bold.text-end span');
-
-            var pricePerItem = 200000;
-
-            var selectedItems = $('.form-check-input:checked:not(#selectAll)').length;
-            var discountAmount = pricePerItem * selectedItems * quantity;
-
-            savedAmountElement.text(discountAmount.toLocaleString() + 'đ');
-
-            var totalPrice = pricePerItem * selectedItems;
-
-            $('#totalPrice').text(totalPrice.toLocaleString() + 'đ');
-        }
-    });
-
-    // Cập nhật giảm giá tổng cộng và tiết kiệm
-    function updateSummary() {
-        var savedAmountElement = $('.fw-bold.text-end span');
-        var tietKiemElement = $('#tietkiem span');
-        var pricePerItem = 200000;
-        var savingPerItem = 100000;
-
-        var selectedItems = $('.form-check-input:checked').length;
-
-        var selectAllChecked = $('#selectAll').prop('checked');
-
-        if (selectAllChecked) {
-            selectedItems--;
-        }
-        var discountAmount = pricePerItem * quantity * selectedItems;
-
-        savedAmountElement.text(discountAmount.toLocaleString() + 'đ');
-
-        var savingAmount = savingPerItem * selectedItems;
-
-        tietKiemElement.text(savingAmount.toLocaleString() + 'đ');
-    }
+    updateTotal();
 
 </script>
 {{/section}}
