@@ -8,7 +8,28 @@ const {
 class WishlistController {
     //[GET] /course
     async index(req, res) {
-        res.send('trang sản phẩm yêu thích')
+        const userId = req.session.user.user_id;
+        const wishlist = await Wishlist.find({
+            userId
+        });
+
+        const products = [];
+
+        for (const wishlistItem of wishlist) {
+            const product = await Accessaries.findById(wishlistItem.productId);
+            if (product) {
+                products.push(product);
+            }
+        }
+
+        try {
+
+            res.render('pages/wishlist/wishlist', {
+                products: multipleMongooseToObject(products)
+            });
+        } catch (error) {
+            next(error)
+        }
     }
 
     async detail(req, res) {
