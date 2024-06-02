@@ -6,14 +6,15 @@ const userController = require('../../app/controllers/UserController');
 
 const validation = require('../../app/middlewares/validationMiddleware');
 const {
-    loginShema
+    loginShema,
+    registerSchema
 } = require('../../app/validations');
 
 router.post('/forget-password', userController.sendEmailToRestorePassword);
 router.get('/forget-password', userController.forgetPassword);
 router.post('/logout', userController.logout);
 router.post('/login', validation(loginShema), userController.login);
-router.post('/register', userController.register);
+router.post('/register', validation(registerSchema), userController.register);
 router.get('/login', userController.getLogin);
 router.get('/register', userController.getRegister);
 router.get('/search', homeConttroller.search);
