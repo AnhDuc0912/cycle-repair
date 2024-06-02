@@ -71,6 +71,8 @@ class UserController {
 
     async register(req, res, next) {
         const formData = req.body;
+        const role = Roles.findOne({title: 'USER'})
+        formData.role = role._id;
 
         try {
             // Tạo salt

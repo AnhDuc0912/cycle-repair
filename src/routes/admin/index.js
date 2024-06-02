@@ -18,10 +18,10 @@ const upload = multer({ storage });
 const AdminController = require('../../app/admin/controllers/AdminController')
 
 const dashboardRouter = require('./dashboard');
-const serviceRouter = require('./service');
+const blogRouter = require('./blog');
 
 router.use('/dashboard', dashboardRouter);
-router.use('/service', serviceRouter);
+router.use('/blog', blogRouter);
 
 //Admin service
 router.post('/upload', upload.single('upload'), AdminController.upload);
